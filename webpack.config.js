@@ -3,14 +3,10 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'client/src/index.html'),
-  output: {
-    file: path.resolve(__dirname, 'client/dist'),
-
-  },
+  entry: path.resolve(__dirname, 'client/src/index.jsx'),
   output: {
     path: path.resolve(__dirname, 'client/dist'),
-    filename: 'index.js',
+    filename: 'main.js',
   },
   // devTool: 'eval',
 
@@ -24,14 +20,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.html$/,
-        use: 'html-loader'
       }
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './client/src/index.html' })
+    new HtmlWebpackPlugin({ template: './client/index.html' })
   ],
 };
