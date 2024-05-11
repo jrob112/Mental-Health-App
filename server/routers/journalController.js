@@ -47,14 +47,13 @@ module.exports = {
         else {
           res.sendStatus(500);
         }
-      })
+      });
   },
   updateJournalEntry: (req, res) => {
     const {UserId, id} = req.params;
     const { updatedJournal } = req.body;
     Journals.update(updatedJournal, {where: {id: +id, UserId: +UserId}})
       .then((data) => {
-        console.log(data)
         if (data[0] > 0) {
           res.sendStatus(200);
         }
@@ -70,7 +69,27 @@ module.exports = {
         else{
           res.sendStatus(500);
         }
-      })
+      });
   },
-  deleteJournalEntry: (req, res) => {},
+  deleteJournalEntry: (req, res) => {
+    const {UserId, id} = req.params;
+    Journals.destroy({where: {id: +id, UserId: +UserId}})
+      .then((data) => {
+        if (data > 0) {
+          res.sendStatus(200);
+        }
+        else {
+          throw 'No Journal'
+        }
+      })
+      .catch((err) => {
+        console.error('Error: PUT /api/:userId/journal/:id : ',err);
+        if (err === 'No Journal'){
+          res.sendStatus(404);
+        }
+        else{
+          res.sendStatus(500);
+        }
+      });
+  },
 }

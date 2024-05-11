@@ -17,5 +17,6 @@ router.route('/:UserId/journal').get(journalController.getJournals);
 router.route('/:UserId/journal').post(journalController.addJournal);
 router.route('/:UserId/journal/:id').get(journalController.getJournalEntry);
 router.route('/:UserId/journal/:id').put(journalController.updateJournalEntry);
+router.route('/:UserId/journal/:id').delete(journalController.deleteJournalEntry);
 
 module.exports = router;
