@@ -15,5 +15,6 @@ router.route('/weather').get(weatherController.getWeather);
 // Journal Routers
 router.route('/:userId/journal').get(journalController.getJournals);
 router.route('/:userId/journal').post(journalController.addJournal);
+router.route('/:userId/journal/:id').get(journalController.getJournalEntry);
 
 module.exports = router;
