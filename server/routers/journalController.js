@@ -2,8 +2,8 @@ const { Journals, User } = require('../db');
 
 module.exports = {
   getJournals: (req, res) => {
-    const { userId } = req.params;
-    User.findByPk(userId, {include: ['Journals']})
+    const { UserId } = req.params;
+    User.findByPk(UserId, {include: ['Journals']})
       .then((user) => {
         res.send(user.Journals);
       })
@@ -13,9 +13,9 @@ module.exports = {
       });
   },
   addJournal: (req, res) => {
-    const { userId } = req.params;
+    const { UserId } = req.params;
     const { journal } = req.body;
-    User.findByPk(userId)
+    User.findByPk(UserId)
       .then((user) => {
         console.log(user)
         return Journals.create({...journal, UserId: user.id});
@@ -29,10 +29,10 @@ module.exports = {
       });
   },
   getJournalEntry: (req, res) => {
-    const { userId, id } = req.params;
+    const { UserId, id } = req.params;
     Journals.findByPk(id)
       .then((journalEntry) => {
-        if (journalEntry.UserId === +userId) {
+        if (journalEntry.UserId === +UserId) {
           res.send(journalEntry);
         }
         else {
@@ -40,16 +40,37 @@ module.exports = {
         }
       })
       .catch((err) => {
+        console.error('Error: GET /api/:userId/journal/:id : ', err);
         if (err === 'Journal entry does not belong to user'){
-          console.error('Journal entry does not belong to user');
           res.sendStatus(404);
         }
         else {
-          console.error(err);
           res.sendStatus(500);
         }
       })
   },
-  updateJournalEntry: (req, res) => {},
+  updateJournalEntry: (req, res) => {
+    const {UserId, id} = req.params;
+    const { updatedJournal } = req.body;
+    Journals.update(updatedJournal, {where: {id: +id, UserId: +UserId}})
+      .then((data) => {
+        console.log(data)
+        if (data[0] > 0) {
+          res.sendStatus(200);
+        }
+        else {
+          throw 'No Journal'
+        }
+      })
+      .catch((err) => {
+        console.error('Error: PUT /api/:userId/journal/:id : ',err);
+        if (err === 'No Journal'){
+          res.sendStatus(404);
+        }
+        else{
+          res.sendStatus(500);
+        }
+      })
+  },
   deleteJournalEntry: (req, res) => {},
 }
