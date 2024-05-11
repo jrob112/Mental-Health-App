@@ -1,0 +1,2 @@
+const { Journals } = require('../db');
+
