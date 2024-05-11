@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const { db } = require('./db');
 const routes = require('./routers');
@@ -11,6 +12,7 @@ const PORT = 8080;
 
 const app = express();
 
+app.use(bodyParser.json())
 app.use(express.static(DIST_PATH));
 
 // routers
