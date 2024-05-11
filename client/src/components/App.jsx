@@ -1,11 +1,10 @@
 import React from 'react';
-import Router from 'react-router';
+import { Routes, Route, Link } from 'react-router-dom';
+import HomePage from './HomePage.jsx';
 
 const App = () => {
   return (
-    <>
-      <h1>Hello</h1>
-    </>
+    <h1>HEYYYY</h1>
   )
 }
 
