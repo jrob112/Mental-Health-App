@@ -1,46 +1,73 @@
-(async() => {
-await require('..')
-
 const { User, Journals, Moods, Habits } = require('.');
 const loremIpsum = require('lorem-ipsum').LoremIpsum;
 
 //setup lorem-ipsum
 const lorem = new loremIpsum();
 
-//clear database
-User.destroyAll();
-Journals.destroyAll();
-Moods.destroyAll();
-Habits.destroyAll();
+function seed() {
 
-user1 = await User.create({
-    username: lorem.generateWords(1),
-    location: lorem.generateWords(2),
-})
-await Journals.create({
-    title: lorem.generateWords(5),
-    body: lorem.generateParagraphs(3),
-    UserId: user1.id,
-})
-await Journals.create({
-    title: lorem.generateWords(5),
-    body: lorem.generateParagraphs(3),
-    UserId: user1.id,
-})
+  let user1, user2;
 
-user2 = await User.create({
-    username: lorem.generateWords(1),
-    location: lorem.generateWords(2),
-})
-await Journals.create({
-    title: lorem.generateWords(5),
-    body: lorem.generateParagraphs(3),
-    UserId: user2.id,
-})
-await Journals.create({
-    title: lorem.generateWords(5),
-    body: lorem.generateParagraphs(3),
-    UserId: user2.id,
-})
+  const options = { where: {}}
 
-})()
+  //clear database
+  return User.destroy(options)
+    .then(() => Journals.destroy(options))
+    .then(() => Moods.destroy(options))
+    .then(() => Habits.destroy(options))
+    .then(() => {console.info('Cleared tables')})
+    .then(() => (
+      User.create({
+          username: lorem.generateWords(1),
+          location: lorem.generateWords(2),
+      })
+    ))
+    .then((user) => {
+      user1 = user;
+      console.log(user1);
+    })
+    .then(() =>(
+      Journals.create({
+        title: lorem.generateWords(5),
+        body: lorem.generateParagraphs(1),
+        UserId: user1.id,
+      })
+    ))
+    .then(() => (
+      Journals.create({
+        title: lorem.generateWords(5),
+        body: lorem.generateParagraphs(1),
+        UserId: user1.id,
+      })
+    ))
+    .then(() => (
+      User.create({
+          username: lorem.generateWords(1),
+          location: lorem.generateWords(2),
+      })
+    ))
+    .then((user) => {
+      user2 = user;
+      console.log(user2);
+    })
+    .then(() =>(
+      Journals.create({
+        title: lorem.generateWords(5),
+        body: lorem.generateParagraphs(1),
+        UserId: user2.id,
+      })
+    ))
+    .then(() => (
+      Journals.create({
+        title: lorem.generateWords(5),
+        body: lorem.generateParagraphs(1),
+        UserId: user2.id,
+      })
+    ))
+    .then(() => { console.info('Seeded database') })
+    .catch((err) => {
+      console.error('Could not seed database: ', err)
+    })
+}
+
+module.exports.seed = seed;
