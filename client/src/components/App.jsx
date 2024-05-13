@@ -1,11 +1,16 @@
 import React from 'react';
-import Router from 'react-router';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './HomePage.jsx';
+import Journal from './Journal.jsx';
+import Login from './Login.jsx';
 
 const App = () => {
   return (
-    <>
-      <h1>Hello</h1>
-    </>
+    <Routes>
+      <Route path='/' element={<HomePage />} />
+      <Route path='/journal' element={<Journal />} />
+      <Route path='/login' element={<Login />}/>
+    </Routes>
   )
 }
 
