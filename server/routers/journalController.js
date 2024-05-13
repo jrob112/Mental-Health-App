@@ -4,28 +4,34 @@ module.exports = {
   getJournals: (req, res) => {
     const { UserId } = req.params;
     User.findByPk(UserId, {include: ['Journals']})
-      .then((user) => {
-        res.send(user.Journals);
-      })
-      .catch((err) => {
-        res.sendStatus(500);
-        console.error('Error: GET /api/:userId/journal: ', err);
-      });
+    .then((user) => {
+      if (user) { res.send(user.Journals); }
+      else { res.sendStatus(404) }
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+      console.error('Error: GET /api/:userId/journal: ', err);
+    });
   },
   addJournal: (req, res) => {
     const { UserId } = req.params;
     const { journal } = req.body;
     User.findByPk(UserId)
       .then((user) => {
-        console.log(user)
-        return Journals.create({...journal, UserId: user.id});
+        if (user) { return Journals.create({...journal, UserId: user.id}); }
+        else { throw 'No User' }
       })
       .then(() => {
         res.sendStatus(201);
       })
       .catch((err) => {
-        res.sendStatus(500);
         console.error('Error: POST /api/:userId/journal: ', err);
+        if (err === 'No User') {
+          res.sendStatus(404);
+        }
+        else {
+          res.sendStatus(500);
+        }
       });
   },
   getJournalEntry: (req, res) => {
