@@ -2,7 +2,7 @@ const express = require('express');
 const weatherController = require('./weatherController');
 const journalController = require('./journalController');
 const userController = require('./userController');
-
+const habitsController = require('./habitsController');
 const router = express.Router();
 
 // User Routers
@@ -18,5 +18,8 @@ router.route('/:UserId/journal').post(journalController.addJournal);
 router.route('/:UserId/journal/:id').get(journalController.getJournalEntry);
 router.route('/:UserId/journal/:id').put(journalController.updateJournalEntry);
 router.route('/:UserId/journal/:id').delete(journalController.deleteJournalEntry);
+
+//Habits Routers
+router.route('/habits').get(habitsController.getHabits);
 
 module.exports = router;
