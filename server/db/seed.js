@@ -81,5 +81,3 @@ const lorem = new loremIpsum();
       console.error('Could not seed database: ', err);
     });
 })();
-
-// module.exports.seed = seed;
