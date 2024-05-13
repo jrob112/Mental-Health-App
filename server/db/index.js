@@ -30,7 +30,7 @@ const Journals = db.define('Journal', {
     type: DataTypes.STRING,
   },
   body: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT('long'),
   },
 });
 
@@ -87,6 +87,11 @@ Journals.User = Journals.belongsTo(User);
     Moods.sync();
     Journals.sync();
     console.log('Connection has been established successfully.');
+
+    const { seed } = require('./seed');
+    // if true will run seed, dropping all data
+    const SEED = false;
+    if (SEED) { seed([User, Journals, Moods, Habits]); }
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
