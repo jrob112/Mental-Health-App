@@ -11,7 +11,7 @@ const routes = require('./routers');
 require('dotenv').config();
 
 const DIST_PATH = path.resolve(__dirname, '..', 'client/dist');
-const PORT = 8080;
+const PORT = 8000;
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_ID;
 
@@ -59,8 +59,8 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback',
     passport.authenticate( 'google', {
-        successRedirect: '/',
-        failureRedirect: '/login'
+        successRedirect: '/home',
+        failureRedirect: '/'
 }));
 
-app.listen(8080, () => {console.info(`Server listening on 127.0.0.1:${PORT}`)});
+app.listen(PORT, () => {console.info(`Server listening on 127.0.0.1:${PORT}`)});
