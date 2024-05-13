@@ -5,7 +5,7 @@ import Weather from './Weather.jsx';
 const HomePage = () => {
   return (
     <div>
-      <h1>Welcome!</h1>
+      <h2>Welcome!</h2>
       <Weather />
       <p>What would you like to do today?</p>
       <div>
