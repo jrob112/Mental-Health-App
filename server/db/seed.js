@@ -82,3 +82,4 @@ const lorem = new loremIpsum();
     });
 })();
 
+// module.exports.seed = seed;
