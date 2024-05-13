@@ -4,13 +4,14 @@ module.exports = {
   getJournals: (req, res) => {
     const { UserId } = req.params;
     User.findByPk(UserId, {include: ['Journals']})
-      .then((user) => {
-        res.send(user.Journals);
-      })
-      .catch((err) => {
-        res.sendStatus(500);
-        console.error('Error: GET /api/:userId/journal: ', err);
-      });
+    .then((user) => {
+      if (user) { res.send(user.Journals); }
+      else { res.sendStatus(404) }
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+      console.error('Error: GET /api/:userId/journal: ', err);
+    });
   },
   addJournal: (req, res) => {
     const { UserId } = req.params;
