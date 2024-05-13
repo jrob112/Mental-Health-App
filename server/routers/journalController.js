@@ -18,15 +18,21 @@ module.exports = {
     const { journal } = req.body;
     User.findByPk(UserId)
       .then((user) => {
-        console.log(user)
+        if (user) { res.send(user.Journals); }
+        else { throw 'No User' }
         return Journals.create({...journal, UserId: user.id});
       })
       .then(() => {
         res.sendStatus(201);
       })
       .catch((err) => {
-        res.sendStatus(500);
         console.error('Error: POST /api/:userId/journal: ', err);
+        if (err === 'No User') {
+          res.sendStatus(404);
+        }
+        else {
+          res.sendStatus(500);
+        }
       });
   },
   getJournalEntry: (req, res) => {
