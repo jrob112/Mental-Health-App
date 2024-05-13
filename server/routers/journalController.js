@@ -18,9 +18,8 @@ module.exports = {
     const { journal } = req.body;
     User.findByPk(UserId)
       .then((user) => {
-        if (user) { res.send(user.Journals); }
+        if (user) { return Journals.create({...journal, UserId: user.id}); }
         else { throw 'No User' }
-        return Journals.create({...journal, UserId: user.id});
       })
       .then(() => {
         res.sendStatus(201);
