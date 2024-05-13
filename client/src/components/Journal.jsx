@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 const Journal = () => {
-
+  
+  const onSubmit = () => {
+    axios.post('/api/13/journal', {journal: {title, body}})
+      .then(res => console.log(res))
+      .catch((err) => console.error('Could not post journal: ', err))
+  };
+  
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
@@ -24,6 +31,7 @@ const Journal = () => {
       ></textarea>
       <button
         type="submit"
+        onClick={onSubmit}
       >Save Journal</button>
     </>
   )
