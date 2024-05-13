@@ -18,4 +18,4 @@ app.use(express.static(DIST_PATH));
 // routers
 app.use('/api', routes);
 
-app.listen(8080, () => {console.info(`Server listening on http://127.0.0.1:${PORT}`)});
+app.listen(PORT, () => {console.info(`Server listening on 127.0.0.1:${PORT}`)});
