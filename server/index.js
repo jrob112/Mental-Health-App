@@ -17,7 +17,7 @@ const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
 const authUser = (request, accessToken, refreshToken, profile, done) => {
   console.log(profile);
-  User.findOrCreate({where: {googleId: profile.id}, defaults:{googleId: profile.id, username: 'Test', location: 'test'}})
+  User.findOrCreate({where: {googleId: profile.id}, defaults:{googleId: profile.id, username: profile.given_name, location: 'test'}})
     .then((user) => {done(null, user)})
 }
 
