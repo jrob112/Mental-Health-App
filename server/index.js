@@ -4,6 +4,7 @@ const session = require('express-session');
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const bodyParser = require('body-parser');
+const requestIp = require('request-ip');
 
 const { User } = require('./db');
 const routes = require('./routers');
@@ -22,6 +23,7 @@ const authUser = (request, accessToken, refreshToken, profile, done) => {
 }
 
 const app = express();
+
 console.log('ID', GOOGLE_CLIENT_ID, 'Secret', GOOGLE_CLIENT_SECRET)
 app.use(session({
   secret: 'secret',
@@ -57,6 +59,7 @@ passport.deserializeUser((user, done) => {
 
 app.use(express.static(DIST_PATH));
 app.use(bodyParser.json())
+app.use(requestIp.mw())
 
 // routers
 app.use('/api', routes);
