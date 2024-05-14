@@ -26,7 +26,7 @@ const authUser = (request, accessToken, refreshToken, profile, done) => {
 };
 
 const app = express();
-console.log('ID', GOOGLE_CLIENT_ID, 'Secret', GOOGLE_CLIENT_SECRET);
+// console.log('ID', GOOGLE_CLIENT_ID, 'Secret', GOOGLE_CLIENT_SECRET);
 app.use(
   session({
     secret: 'secret',
