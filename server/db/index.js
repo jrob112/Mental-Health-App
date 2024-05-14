@@ -12,6 +12,9 @@ const User = db.define('User', {
     autoIncrement: true,
     primaryKey: true,
   },
+  googleId : {
+    type: DataTypes.STRING,
+  },
   username: {
     type: DataTypes.STRING,
   },
