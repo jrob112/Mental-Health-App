@@ -30,6 +30,10 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.5",
+    "@fontsource/roboto": "^5.0.13",
+    "@mui/material": "^5.15.17",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
@@ -41,6 +45,7 @@
     "react-dom": "^18.3.1",
     "react-router": "^6.23.0",
     "react-router-dom": "^6.23.0",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "styled-components": "^6.1.11"
   }
 }
