@@ -4,7 +4,7 @@ const userId = 13;
 
 module.exports = {
   getHabits: (req, res) => {
-    Habits.findAll()
+    Habits.findAll({})
       .then((habits) => {
         res.status(200).send(habits);
       })
@@ -16,14 +16,17 @@ module.exports = {
 
   postHabit: (req, res) => {
     const { UserId } = req.params;
-    const { body } = req;
+    const { goal, description} = req.body;
+
+    const numGoal = Number(goal);
 
     Habits.create({
-      description: body.description,
-      goal: body.goal,
-      timesCompleted: body.timesCompleted,
+      description,
+      goal: numGoal,
+      timesCompleted: 0,
       isComplete: false,
-      streak: body.streak
+      streak: 0, 
+      UserId
     })
     .then(() => {
       res.sendStatus(201);
