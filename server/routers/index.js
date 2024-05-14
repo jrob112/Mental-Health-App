@@ -20,6 +20,7 @@ router.route('/:UserId/journal/:id').put(journalController.updateJournalEntry);
 router.route('/:UserId/journal/:id').delete(journalController.deleteJournalEntry);
 
 //Habits Routers
-router.route('/habits').get(habitsController.getHabits);
+router.route('/:UserId/habits').get(habitsController.getHabits);
+router.route('/:UserId/habits').post(habitsController.postHabit);
 
 module.exports = router;

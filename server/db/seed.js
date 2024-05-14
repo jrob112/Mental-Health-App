@@ -72,6 +72,7 @@ const lorem = new loremIpsum();
         timesCompleted: 2,
         isComplete: false,
         streak: 3,
+        UserId: user2.id
       })
     })
     .then(() => {
