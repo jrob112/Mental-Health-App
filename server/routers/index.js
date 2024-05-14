@@ -12,7 +12,6 @@ router.route('/weather').get(weatherController.getWeather);
 router.route('/:UserId').get(userController.getUser);
 router.route('/user').post(userController.addUser);
 
-
 // Journal Routers
 router.route('/:UserId/journal').get(journalController.getJournals);
 router.route('/:UserId/journal').post(journalController.addJournal);

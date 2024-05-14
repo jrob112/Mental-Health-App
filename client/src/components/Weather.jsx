@@ -28,12 +28,12 @@ const Weather = () => {
   // getWeatherData is called when the component mounts and ONLY when it mounts
   // [] = dependency array
     // will only run once after the initial render
-// initial render = when react starts rendering the component/children to the DOM for the first time
-  // react creates the necessary DOM elements based on the comp's jsx
-  // entire process of rendering the comp to the screen
-// component mount = when the comp is successfully put into the DOM tree
-  // this is when componentDidMount and useEffect come into play
-  // SPECIFICALLY when the component becomes part of the DOM
+  // initial render = when react starts rendering the component/children to the DOM for the first time
+    // react creates the necessary DOM elements based on the comp's jsx
+    // entire process of rendering the comp to the screen
+  // component mount = when the comp is successfully put into the DOM tree
+    // this is when componentDidMount and useEffect come into play
+    // SPECIFICALLY when the component becomes part of the DOM
   useEffect(() => {
     getWeatherData();
   }, []);

@@ -14,7 +14,7 @@ module.exports = {
         console.log('user city', userCity);
 
         const apiKey = process.env.VISUAL_CROSSING_API_KEY;
-        const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userCity}?unitGroup=metric&include=days&key=${apiKey}&contentType=json`;
+        const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userCity}/today?unitGroup=metric&contentType=json&key=${apiKey}`;
         console.log('weather api url', apiUrl);
 
         return axios.get(apiUrl);
