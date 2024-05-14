@@ -11,6 +11,7 @@ export default function() {
   useEffect(() =>{
     axios.get(`/api/${userId}/habits`)
       .then((response) => {
+        // console.log(response.data);
         setHabits(response.data);
       });
   });
@@ -19,9 +20,9 @@ export default function() {
   return(
     <>
       <h1> Habits </h1>
-      {/* <h3> { habits[0].description} </h3>
-        <p> { habits[0].goal }</p>
-        <p> You have a Streak of { habits[0].streak}! </p> */}
+       {/* <h3> { habits[0].description} </h3>  */}
+        {/* <p> { habits[0].goal }</p> */}
+        {/* <p> You have a Streak of { habits[0].streak}! </p> */}
     </>
   );
 };

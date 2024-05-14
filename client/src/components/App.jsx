@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import HomePage from './HomePage.jsx';
 import Journal from './Journal.jsx';
 import Login from './Login.jsx';
+import Habits from './Habits.jsx';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Route path='/home' element={<HomePage />} />
         <Route path='/journal' element={<Journal />} />
         <Route path='/' element={<Login />}/>
+        <Route path='/habits' element={<Habits />} />
       </Routes>
     </>
   )
