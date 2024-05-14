@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { Typography, Button, TextField } from "@mui/material";
 import JournalBar from "./JournalBar.jsx";
 
-const userId = 13
+const userId = 2
 
 const Journal = () => {
 
@@ -25,25 +26,29 @@ const Journal = () => {
   return (
     <>
       <JournalBar journals={journals}/>
-      <h1>JOURNAL</h1>
-      <input
-        type="text"
+      <Typography variant="h2" gutterBottom>
+        Journal
+      </Typography>
+      <TextField
         value={title}
-        name="title"
         onChange={(e) => {setTitle(e.target.value)}}
-        placeholder="Title"
-      ></input>
-      <textarea
-        type="text"
-        value={body}
-        name="body"
+        id="filled-multiline-flexible"
+        label="Title"
+        variant="filled"
+        />
+      <TextField
         onChange={(e) => {setBody(e.target.value)}}
-        placeholder="What's on your mind?"
-      ></textarea>
-      <button
-        type="submit"
+        value={body}
+        id="standard-multiline-static"
+        label="Whats on your mind?"
+        multiline
+        rows={6}
+        variant="filled"
+        />
+      <Button
+      variant="contained"
         onClick={onSubmit}
-      >Save Journal</button>
+      >Save Journal</Button>
     </>
   )
 }
