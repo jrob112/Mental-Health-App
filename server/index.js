@@ -72,4 +72,8 @@ app.get('/auth/google/callback',
         failureRedirect: '/'
 }));
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(DIST_PATH, 'index.html'));
+});
+
 app.listen(PORT, () => {console.info(`Server listening on 127.0.0.1:${PORT}`)});
