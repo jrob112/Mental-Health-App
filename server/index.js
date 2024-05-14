@@ -13,16 +13,16 @@ require('dotenv').config();
 const DIST_PATH = path.resolve(__dirname, '..', 'client/dist');
 const PORT = 8000;
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
 const authUser = (request, accessToken, refreshToken, profile, done) => {
   console.log(profile);
-  User.findOrCreate({googleId: profile.id, username: 'Test', location: 'test'})
-    .then(() => {done(err, user)})
+  User.findOrCreate({where: {googleId: profile.id}, defaults:{googleId: profile.id, username: 'Test', location: 'test'}})
+    .then((user) => {done(null, user)})
 }
 
 const app = express();
-
+console.log('ID', GOOGLE_CLIENT_ID, 'Secret', GOOGLE_CLIENT_SECRET)
 app.use(session({
   secret: 'secret',
   resave: false,
@@ -35,7 +35,7 @@ app.use(passport.session());
 passport.use(new GoogleStrategy({
   clientID: GOOGLE_CLIENT_ID,
   clientSecret: GOOGLE_CLIENT_SECRET,
-  callbackURL: `http://localhost:${PORT}`,
+  callbackURL: `/auth/google/callback`,
   passReqToCallback: true,
 },
   authUser
@@ -46,8 +46,17 @@ passport.serializeUser((user, done) => {
   done(null, user)
 })
 
-app.use(bodyParser.json())
+passport.deserializeUser((user, done) => {
+  console.log("\n--------- Deserialized User:")
+  console.log(user)
+  // This is the {user} that was saved in req.session.passport.user.{user} in the serializationUser()
+  // deserializeUser will attach this {user} to the "req.user.{user}", so that it can be used anywhere in the App.
+
+  done (null, user)
+})
+
 app.use(express.static(DIST_PATH));
+app.use(bodyParser.json())
 
 // routers
 app.use('/api', routes);
