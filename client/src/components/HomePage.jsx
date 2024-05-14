@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Weather from './Weather.jsx';
 import { Button } from '@mui/material';
-import { purple } from '@mui/material/colors';
 
 const HomePage = () => {
   return (
