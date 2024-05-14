@@ -20,6 +20,7 @@ function seed() {
       User.create({
           username: lorem.generateWords(1),
           location: lorem.generateWords(2),
+          googleId: '0001',
       })
     ))
     .then((user) => {
@@ -44,6 +45,7 @@ function seed() {
       User.create({
           username: lorem.generateWords(1),
           location: lorem.generateWords(2),
+          googleId: '0002'
       })
     ))
     .then((user) => {
