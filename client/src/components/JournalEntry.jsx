@@ -9,6 +9,7 @@ const userId = 2
 
 const JournalEntry = () => {
   const [journal, setJournal] = useState({})
+  const [body, setBody] = useState(journal.body);
   const [title, setTitle] = useState(journal.title)
   const [editMode, toggleEditMode] = useState(false)
   const journalRef = useRef(journal);
@@ -23,15 +24,16 @@ const JournalEntry = () => {
   }, [journalRef])
 
   const cancelEdit = () => {
+    setBody(journal.body)
     setTitle(journal.title)
     toggleEditMode(!editMode);
   }
 
   const submitEdit = () => {
-    axios.put(`/api/${userId}/journal/${journal.id}`, {updatedJournal: {title, body:journal.body}})
+    axios.put(`/api/${userId}/journal/${journal.id}`, {updatedJournal: {title, body}})
       .then(({data}) => {
         if (data === 'OK') {
-          setJournal({...journal, title})
+          setJournal({...journal, title, body})
         }
         else {
           console.error('Could not update journal')
@@ -64,7 +66,19 @@ const JournalEntry = () => {
         </ButtonGroup> :
         <Button variant="contained" onClick={cancelEdit}>Edit</Button>}
       <Typography variant="h3">{dayjs(journal.createdAt).format('MMM-D-YYYY')}</Typography>
-      <Typography variant="p">{journal.body}</Typography>
+      {
+        editMode ?
+        <TextField
+          onChange={(e) => {setBody(e.target.value)}}
+          value={body}
+          id="standard-multiline-static"
+          label="Whats on your mind?"
+          multiline
+          rows={6}
+          variant="filled"
+        /> :
+        <Typography variant="p">{journal.body}</Typography>
+      }
     </>
   )
 }
