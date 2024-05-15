@@ -1,10 +1,8 @@
 import React from "react";
-import { Card, CardContent, CardActions, Typography, Button, Box, Link, Icon } from "@mui/material";
+import { Card, CardContent, CardActions, Typography, Button, Box } from "@mui/material";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { Link } from 'react-router-dom';
 import dayjs from "dayjs";
-import axios from "axios";
-
-const userId = 2
 
 const JournalBarItem = ({ journal, deleteJournal }) => {
 
@@ -27,7 +25,7 @@ const JournalBarItem = ({ journal, deleteJournal }) => {
         </Box>
       </CardContent>
       <CardActions>
-        <Link to={`/home`}><Button variant="text">Read Entry</Button></Link>
+        <Link to={`/journal/${journal.id}`}><Button variant="text">Read Entry</Button></Link>
         <Button onClick={handleDelete}><DeleteForeverIcon /></Button>
       </CardActions>
     </Card>

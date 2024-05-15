@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from 'react-router-dom';
 import { Typography } from "@mui/material";
 import axios from "axios";
 import dayjs from "dayjs";
 
 
+const userId = 2
 
 const JournalEntry = () => {
-  const userId = 2
   const [journal, setJournal] = useState({})
+  const journalRef = useRef(journal);
   const { id } = useParams();
 
   useEffect(() => {
     axios.get(`/api/${userId}/journal/${id}`)
       .then(({data}) => {
-        setJournal(data)
+        setJournal(data);
+        console.log(journal)
       })
-  })
+  }, [journalRef])
 
   return (
     <>
