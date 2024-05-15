@@ -13,7 +13,30 @@ module.exports = {
         res.sendStatus(500);
       });
   },
+  updateHabit: (req, res) => {
+    const { HabitId } = req.params;
+    const { goal, timesCompleted } = req.body;
+    console.log('hi', HabitId, goal, timesCompleted);
+    let isComplete = false;
+    if (timesCompleted === goal) {
+      isComplete === true;
+    }
 
+    Habits.update(
+      { timesCompleted, goal, isComplete },
+      {
+        where: {
+          id: HabitId,
+        },
+      },
+    )
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch(() => {
+        res.sendStatus(500);
+      });
+  },
   /**
    *  This function post a new Habit to the Database
    * in the User table and associates a user with their habits
