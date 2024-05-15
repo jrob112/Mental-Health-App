@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Weather from './Weather.jsx';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 const HomePage = () => {
   return (
     <div>
-      <h2>Welcome!</h2>
+      <Typography variant="h2">Welcome!</Typography>
       <Weather />
-      <p>What would you like to do today?</p>
+      <Typography variant="p">What would you like to do today?</Typography>
       <div>
         <Link to="/journal"><Button variant="text">Journal</Button></Link>
         <Link to="/habits"><Button variant="text">Track my habits</Button></Link>
