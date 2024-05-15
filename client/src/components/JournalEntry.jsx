@@ -19,7 +19,6 @@ const JournalEntry = () => {
     axios.get(`/api/${userId}/journal/${id}`)
       .then(({data}) => {
         setJournal(data);
-        console.log(journal)
       })
   }, [journalRef])
 

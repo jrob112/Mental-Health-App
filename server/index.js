@@ -17,14 +17,12 @@ const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
 const authUser = (request, accessToken, refreshToken, profile, done) => {
-  console.log(profile);
   User.findOrCreate({where: {googleId: profile.id}, defaults:{googleId: profile.id, username: profile.given_name, location: 'test'}})
     .then((user) => {done(null, user)})
 }
 
 const app = express();
 
-console.log('ID', GOOGLE_CLIENT_ID, 'Secret', GOOGLE_CLIENT_SECRET)
 app.use(session({
   secret: 'secret',
   resave: false,
@@ -44,13 +42,10 @@ passport.use(new GoogleStrategy({
 ))
 
 passport.serializeUser((user, done) => {
-  console.log(user);
   done(null, user)
 })
 
 passport.deserializeUser((user, done) => {
-  console.log("\n--------- Deserialized User:")
-  console.log(user)
   // This is the {user} that was saved in req.session.passport.user.{user} in the serializationUser()
   // deserializeUser will attach this {user} to the "req.user.{user}", so that it can be used anywhere in the App.
 
