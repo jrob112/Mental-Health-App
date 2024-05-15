@@ -68,14 +68,15 @@ const Habits = db.define('Habits', {
   },
   isComplete: {
     type: DataTypes.BOOLEAN,
-  //replaced isComplete with the last reset
-  //don't need anymore with Habits.beforeSave below
-  lastReset: {
-    type: DataTypes.DATE,
-    defaultValue: Sequelize.NOW,
-  },
-  streak: {
-    type: DataTypes.INTEGER,
+    //replaced isComplete with the last reset
+    //don't need anymore with Habits.beforeSave below
+    lastReset: {
+      type: DataTypes.DATE,
+      defaultValue: Sequelize.NOW,
+    },
+    streak: {
+      type: DataTypes.INTEGER,
+    },
   },
 });
 
