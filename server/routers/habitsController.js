@@ -56,7 +56,6 @@ module.exports = {
    */
   postHabit: (req, res) => {
     const { UserId } = req.params;
-    const { goal, description} = req.body;
     const { goal, description } = req.body;
 
     const numGoal = Number(goal);
@@ -66,15 +65,6 @@ module.exports = {
       goal: numGoal,
       timesCompleted: 0,
       isComplete: false,
-      streak: 0, 
-      UserId
-    })
-    .then(() => {
-      res.sendStatus(201);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
       streak: 0,
       UserId,
     })
