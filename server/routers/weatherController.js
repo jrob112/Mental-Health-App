@@ -11,10 +11,12 @@ module.exports = {
         console.log('ip api response', ipResponse.data);
 
         const userCity = ipResponse.data.city;
+        const userState = ipResponse.data.state;
         console.log('user city', userCity);
+        console.log('user state', userState);
 
         const apiKey = process.env.VISUAL_CROSSING_API_KEY;
-        const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userCity}/today?unitGroup=metric&contentType=json&key=${apiKey}`;
+        const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userCity},${userState}/today?unitGroup=metric&contentType=json&key=${apiKey}`;
         console.log('weather api url', apiUrl);
 
         return axios.get(apiUrl);
