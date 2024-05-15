@@ -1,3 +1,4 @@
+const { where } = require('sequelize');
 const { Habits } = require('../db');
 
 const userId = 13;
@@ -13,6 +14,14 @@ module.exports = {
         res.sendStatus(500);
       });
   },
+  /**
+   *  This functions returns 201 or 500 wheter the habit was updated or not
+   * this is the /:HabitId/habits
+   * @param {Request} req
+   * @param {Response} res
+   *
+   * @returns {status} 201 || err
+   */
   updateHabit: (req, res) => {
     const { HabitId } = req.params;
     const { goal, timesCompleted } = req.body;
