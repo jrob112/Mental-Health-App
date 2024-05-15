@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import JournalBar from "./JournalBar.jsx";
 
-const userId = 13
+const userId = 2
 
 const Journal = () => {
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, CardActions, Typography, Button, Box } from "@mui/material";
+import { Card, CardContent, CardActions, Typography, Button, Box, Link } from "@mui/material";
 import dayjs from "dayjs";
 
 const JournalBarItem = ({ journal }) => {
@@ -18,7 +18,7 @@ const JournalBarItem = ({ journal }) => {
         </Box>
       </CardContent>
       <CardActions>
-        <Button size="small">Read Entry</Button>
+        <Link to={`/home`}><Button variant="text">Read Entry</Button></Link>
       </CardActions>
     </Card>
   )
