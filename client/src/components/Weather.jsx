@@ -1,7 +1,7 @@
 // useState = hooks to manage state
 // useEffect = perform side effects in component
   // kinda like componentDidMount
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 const Weather = () => {
@@ -11,6 +11,7 @@ const Weather = () => {
   // setWeatherData = use to update weatherData
     // when it is called, it will trigger a re-render of the component with the updated state
   const [weatherData, setWeatherData] = useState(null);
+  const weatherRef = useRef(weatherData);
 
   // get weather data from the API using axios get req
   const getWeatherData = () => {
@@ -36,7 +37,7 @@ const Weather = () => {
     // SPECIFICALLY when the component becomes part of the DOM
   useEffect(() => {
     getWeatherData();
-  }, []);
+  }, [weatherRef]);
 
   // my api gives temp in celsius so i need to change it to fahrenheit
   const toFahrenheit = (celsius) => {

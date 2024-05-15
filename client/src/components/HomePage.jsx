@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Weather from './Weather.jsx';
 import { Button, Typography, Box } from '@mui/material';
-import { blueGrey, lightBlue, grey, white, indigo, deepPurple, pink } from '@mui/material/colors';
+import { blueGrey, lightBlue, grey, indigo, deepPurple, pink } from '@mui/material/colors';
 
 const HomePage = () => {
   return (
@@ -21,7 +21,7 @@ const HomePage = () => {
           borderRadius: '10px',
         }}
       >
-        <Typography variant="h2">Welcome!</Typography>
+        <Typography variant="h2" className="h2">Welcome!</Typography>
       </Box>
       <Weather />
       <Box
@@ -36,13 +36,13 @@ const HomePage = () => {
       </Box>
       <Box sx={{ display: 'flex', gap: '10px' }}>
         <Link to="/journal">
-          <Button variant="contained" sx={{ backgroundColor: blueGrey[800], color: white }}>Journal</Button>
+          <Button variant="contained" sx={{ backgroundColor: blueGrey[800] }}>Journal</Button>
         </Link>
         <Link to="/habits">
-          <Button variant="contained" sx={{ backgroundColor: blueGrey[800], color: white }}>Track my habits</Button>
+          <Button variant="contained" sx={{ backgroundColor: blueGrey[800] }}>Track my habits</Button>
         </Link>
         <Link to="/moods">
-          <Button variant="contained" sx={{ backgroundColor: blueGrey[800], color: white }}>How do you feel today?</Button>
+          <Button variant="contained" sx={{ backgroundColor: blueGrey[800] }}>How do you feel today?</Button>
         </Link>
       </Box>
     </Box>
