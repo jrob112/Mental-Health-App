@@ -12,6 +12,9 @@ const User = db.define('User', {
     autoIncrement: true,
     primaryKey: true,
   },
+  googleId : {
+    type: DataTypes.STRING,
+  },
   username: {
     type: DataTypes.STRING,
   },
@@ -30,7 +33,7 @@ const Journals = db.define('Journal', {
     type: DataTypes.STRING,
   },
   body: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT('long'),
   },
 });
 
@@ -87,6 +90,7 @@ Journals.User = Journals.belongsTo(User);
     Moods.sync();
     Journals.sync();
     console.log('Connection has been established successfully.');
+
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
