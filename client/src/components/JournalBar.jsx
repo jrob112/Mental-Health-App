@@ -1,10 +1,10 @@
 import React from "react";
 import JournalBarItem from "./JournalBarItem.jsx";
 
-const JournalBar = ({ journals }) => {
+const JournalBar = ({ journals, deleteJournal }) => {
   return (
     <>
-      {journals.map(journal => <JournalBarItem journal={journal} key={journal.id} />)}
+      {journals.map(journal => <JournalBarItem journal={journal} deleteJournal={deleteJournal} key={journal.id} />)}
     </>
   )
 }

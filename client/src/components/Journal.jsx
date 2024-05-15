@@ -13,9 +13,14 @@ const Journal = () => {
     .catch((err) => console.error('Could not get journal entries: ', err));
   }
 
+  const deleteJournal = (id) => {
+    axios.delete(`/api/${userId}/journal/${id}`)
+      .then(() => { getJournals(); })
+  }
+
   const onSubmit = () => {
     axios.post(`/api/${userId}/journal`, {journal: {title, body}})
-      .then(() => getJournals())
+      .then(() => { getJournals(); })
       .catch((err) => console.error('Could not post journal: ', err))
   };
 
@@ -28,7 +33,7 @@ const Journal = () => {
 
   return (
     <>
-      <JournalBar journals={journals}/>
+      <JournalBar journals={journals} deleteJournal={deleteJournal}/>
       <Typography variant="h2" gutterBottom>
         Journal
       </Typography>
