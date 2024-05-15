@@ -27,6 +27,22 @@ const JournalEntry = () => {
     toggleEditMode(!editMode);
   }
 
+  const submitEdit = () => {
+    axios.put(`/api/${userId}/journal/${journal.id}`, {updatedJournal: {title, body:journal.body}})
+      .then(({data}) => {
+        if (data === 'OK') {
+          setJournal({...journal, title})
+        }
+        else {
+          console.error('Could not update journal')
+          cancelEdit()
+        }
+      })
+      .catch((err) => {
+        console.error('Could not update journal: ', err);
+      })
+  }
+
   return (
     <>
       {
@@ -43,7 +59,7 @@ const JournalEntry = () => {
       {
         editMode ?
         <ButtonGroup>
-          <Button variant="contained" color="success" >Submit</Button>
+          <Button variant="contained" color="success" onClick={submitEdit}>Submit</Button>
           <Button variant="contained" color="error" onClick={cancelEdit}>Cancel</Button>
         </ButtonGroup> :
         <Button variant="contained" onClick={cancelEdit}>Edit</Button>}
