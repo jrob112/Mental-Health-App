@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import axios from 'axios';
 import { Typography, Button, TextField } from "@mui/material";
 import JournalBar from "./JournalBar.jsx";
@@ -7,21 +7,24 @@ const userId = 2
 
 const Journal = () => {
 
+  const getJournals = () => {
+    axios.get(`/api/${userId}/journal`)
+    .then(({ data }) => { setJournals(data);})
+    .catch((err) => console.error('Could not get journal entries: ', err));
+  }
+
   const onSubmit = () => {
     axios.post(`/api/${userId}/journal`, {journal: {title, body}})
-      .then(res => console.log(res))
+      .then(() => getJournals())
       .catch((err) => console.error('Could not post journal: ', err))
   };
 
   const [journals, setJournals] = useState([]);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  const journalsRef = useRef(journals)
 
-  useEffect(() => {
-    axios.get(`/api/${userId}/journal`)
-      .then(({ data }) => { setJournals(data); })
-      .catch((err) => console.error('Could not get journal entries: ', err));
-  })
+  useEffect(getJournals, [journalsRef])
 
   return (
     <>
