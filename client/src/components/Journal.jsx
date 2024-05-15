@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { Typography, Button, TextField } from "@mui/material";
 import JournalBar from "./JournalBar.jsx";
 
 const userId = 2
