@@ -19,10 +19,11 @@ const lorem = new loremIpsum();
     })
     .then(() =>
       User.create({
-        username: lorem.generateWords(1),
-        location: lorem.generateWords(2),
-      }),
-    )
+          username: lorem.generateWords(1),
+          location: lorem.generateWords(2),
+          googleId: '0001',
+      })
+    ))
     .then((user) => {
       user1 = user;
       console.log(user1);
@@ -43,10 +44,11 @@ const lorem = new loremIpsum();
     )
     .then(() =>
       User.create({
-        username: lorem.generateWords(1),
-        location: lorem.generateWords(2),
-      }),
-    )
+          username: lorem.generateWords(1),
+          location: lorem.generateWords(2),
+          googleId: '0002'
+      })
+    ))
     .then((user) => {
       user2 = user;
       console.log(user2);
