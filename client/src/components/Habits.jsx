@@ -1,28 +1,30 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import HabitElement from './HabitElement.jsx';
+import HabitForm from './HabitForm.jsx';
 
+const userId = 4;
 
-const userId = 13;
-
-export default function() {
+export default function () {
   const [habits, setHabits] = useState([]);
-  const [newHabit, postNewHabit] = useState('');
+  const habitsRef = useRef(habits);
 
-  useEffect(() =>{
-    axios.get(`/api/${userId}/habits`)
+  useEffect(() => {
+    axios
+      .get(`/api/${userId}/habits`)
       .then((response) => {
         setHabits(response.data);
-      });
-  });
+      })
+      .catch((err) => console.error('Could not get journal entries: ', err));
+  }, [habitsRef]);
 
-  // console.log(habits);
-  return(
+  return (
     <>
-      <h1> Habits </h1>
-      {/* <h3> { habits[0].description} </h3>
-        <p> { habits[0].goal }</p>
-        <p> You have a Streak of { habits[0].streak}! </p> */}
+        <h1> Habits </h1>
+        <HabitForm />
+      {habits.map((habit) => {
+        return <HabitElement habit={habit} key={`${habit.description}-${habit.id}`}/>;
+      })}
     </>
   );
-};
-
+}
