@@ -15,12 +15,13 @@ const Journal = () => {
   const [journals, setJournals] = useState([]);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  const journalsRef = useRef(journals);
 
   useEffect(() => {
     axios.get(`/api/${userId}/journal`)
       .then(({ data }) => { setJournals(data); })
       .catch((err) => console.error('Could not get journal entries: ', err));
-  })
+  }, [journalsRef])
 
   return (
     <>
