@@ -1,12 +1,19 @@
 import React from "react";
+import { Card, CardContent, Typography } from "@mui/material";
+import dayjs from "dayjs";
 
 const JournalBarItem = ({ journal }) => {
   return (
-    <>
-      <h1>{journal.title}</h1>
-      <h2>{journal.createdAt}</h2>
-      <p>{journal.body.split('\n')[0]}</p>
-    </>
+    <Card
+    variant="outlined"
+    sx={{width: 1/4, maxHeight: 250}}
+    >
+      <CardContent>
+        <Typography variant="h4" gutterBottom>{journal.title}</Typography>
+        <Typography variant="h6" gutterBottom>{dayjs(journal.createdAt).format('MMM-D-YYYY')}</Typography>
+        <Typography variant="p" gutterBottom>{journal.body.split('\n')[0]}</Typography>
+      </CardContent>
+    </Card>
   )
 }
 
