@@ -2,8 +2,7 @@ const { Journals, User } = require('../db');
 
 module.exports = {
   getJournals: (req, res) => {
-    //const { id } = req.user[0];
-    const id = 2;
+    const { id } = req.user[0];
     User.findByPk(id, {include: ['Journals']})
     .then((user) => {
       if (user) { res.send(user.Journals.toReversed()); }
