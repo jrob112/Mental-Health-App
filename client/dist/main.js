@@ -174,28 +174,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/Box/Box.js":
-/*!***********************************************!*\
-  !*** ./node_modules/@mui/material/Box/Box.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/system */ \"./node_modules/@mui/system/esm/createBox.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ \"./node_modules/prop-types/index.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _className__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../className */ \"./node_modules/@mui/utils/ClassNameGenerator/ClassNameGenerator.js\");\n/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles */ \"./node_modules/@mui/material/styles/createTheme.js\");\n/* harmony import */ var _styles_identifier__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/identifier */ \"./node_modules/@mui/material/styles/identifier.js\");\n/* harmony import */ var _boxClasses__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./boxClasses */ \"./node_modules/@mui/material/Box/boxClasses.js\");\n'use client';\n\n\n\n\n\n\n\nconst defaultTheme = (0,_styles__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\nconst Box = (0,_mui_system__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({\n  themeId: _styles_identifier__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  defaultTheme,\n  defaultClassName: _boxClasses__WEBPACK_IMPORTED_MODULE_3__[\"default\"].root,\n  generateClassName: _className__WEBPACK_IMPORTED_MODULE_4__[\"default\"].generate\n});\n true ? Box.propTypes /* remove-proptypes */ = {\n  // ┌────────────────────────────── Warning ──────────────────────────────┐\n  // │ These PropTypes are generated from the TypeScript type definitions. │\n  // │    To update them, edit the d.ts file and run `pnpm proptypes`.     │\n  // └─────────────────────────────────────────────────────────────────────┘\n  /**\n   * @ignore\n   */\n  children: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().node),\n  /**\n   * The component used for the root node.\n   * Either a string to use a HTML element or a component.\n   */\n  component: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().elementType),\n  /**\n   * The system prop that allows defining system overrides as well as additional CSS styles.\n   */\n  sx: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_5___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().bool)])), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().object)])\n} : 0;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Box);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/Box/Box.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/Box/boxClasses.js":
-/*!******************************************************!*\
-  !*** ./node_modules/@mui/material/Box/boxClasses.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils_generateUtilityClasses__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils/generateUtilityClasses */ \"./node_modules/@mui/utils/generateUtilityClasses/generateUtilityClasses.js\");\n\nconst boxClasses = (0,_mui_utils_generateUtilityClasses__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('MuiBox', ['root']);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (boxClasses);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/Box/boxClasses.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/Button/Button.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/material/Button/Button.js ***!
@@ -295,39 +273,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/Typography/Typography.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@mui/material/Typography/Typography.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   TypographyRoot: () => (/* binding */ TypographyRoot),\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ \"./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js\");\n/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! prop-types */ \"./node_modules/prop-types/index.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_11__);\n/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ \"./node_modules/clsx/dist/clsx.mjs\");\n/* harmony import */ var _mui_system_styleFunctionSx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/system/styleFunctionSx */ \"./node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js\");\n/* harmony import */ var _mui_utils_composeClasses__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/utils/composeClasses */ \"./node_modules/@mui/utils/composeClasses/composeClasses.js\");\n/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/styled */ \"./node_modules/@mui/material/styles/styled.js\");\n/* harmony import */ var _styles_useThemeProps__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/useThemeProps */ \"./node_modules/@mui/material/styles/useThemeProps.js\");\n/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ \"./node_modules/@mui/material/utils/capitalize.js\");\n/* harmony import */ var _typographyClasses__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./typographyClasses */ \"./node_modules/@mui/material/Typography/typographyClasses.js\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\n'use client';\n\n\n\nconst _excluded = [\"align\", \"className\", \"component\", \"gutterBottom\", \"noWrap\", \"paragraph\", \"variant\", \"variantMapping\"];\n\n\n\n\n\n\n\n\n\n\nconst useUtilityClasses = ownerState => {\n  const {\n    align,\n    gutterBottom,\n    noWrap,\n    paragraph,\n    variant,\n    classes\n  } = ownerState;\n  const slots = {\n    root: ['root', variant, ownerState.align !== 'inherit' && `align${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(align)}`, gutterBottom && 'gutterBottom', noWrap && 'noWrap', paragraph && 'paragraph']\n  };\n  return (0,_mui_utils_composeClasses__WEBPACK_IMPORTED_MODULE_6__[\"default\"])(slots, _typographyClasses__WEBPACK_IMPORTED_MODULE_7__.getTypographyUtilityClass, classes);\n};\nconst TypographyRoot = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_8__[\"default\"])('span', {\n  name: 'MuiTypography',\n  slot: 'Root',\n  overridesResolver: (props, styles) => {\n    const {\n      ownerState\n    } = props;\n    return [styles.root, ownerState.variant && styles[ownerState.variant], ownerState.align !== 'inherit' && styles[`align${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(ownerState.align)}`], ownerState.noWrap && styles.noWrap, ownerState.gutterBottom && styles.gutterBottom, ownerState.paragraph && styles.paragraph];\n  }\n})(({\n  theme,\n  ownerState\n}) => (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({\n  margin: 0\n}, ownerState.variant === 'inherit' && {\n  // Some elements, like <button> on Chrome have default font that doesn't inherit, reset this.\n  font: 'inherit'\n}, ownerState.variant !== 'inherit' && theme.typography[ownerState.variant], ownerState.align !== 'inherit' && {\n  textAlign: ownerState.align\n}, ownerState.noWrap && {\n  overflow: 'hidden',\n  textOverflow: 'ellipsis',\n  whiteSpace: 'nowrap'\n}, ownerState.gutterBottom && {\n  marginBottom: '0.35em'\n}, ownerState.paragraph && {\n  marginBottom: 16\n}));\nconst defaultVariantMapping = {\n  h1: 'h1',\n  h2: 'h2',\n  h3: 'h3',\n  h4: 'h4',\n  h5: 'h5',\n  h6: 'h6',\n  subtitle1: 'h6',\n  subtitle2: 'h6',\n  body1: 'p',\n  body2: 'p',\n  inherit: 'p'\n};\n\n// TODO v6: deprecate these color values in v5.x and remove the transformation in v6\nconst colorTransformations = {\n  primary: 'primary.main',\n  textPrimary: 'text.primary',\n  secondary: 'secondary.main',\n  textSecondary: 'text.secondary',\n  error: 'error.main'\n};\nconst transformDeprecatedColors = color => {\n  return colorTransformations[color] || color;\n};\nconst Typography = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function Typography(inProps, ref) {\n  const themeProps = (0,_styles_useThemeProps__WEBPACK_IMPORTED_MODULE_9__[\"default\"])({\n    props: inProps,\n    name: 'MuiTypography'\n  });\n  const color = transformDeprecatedColors(themeProps.color);\n  const props = (0,_mui_system_styleFunctionSx__WEBPACK_IMPORTED_MODULE_10__[\"default\"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({}, themeProps, {\n    color\n  }));\n  const {\n      align = 'inherit',\n      className,\n      component,\n      gutterBottom = false,\n      noWrap = false,\n      paragraph = false,\n      variant = 'body1',\n      variantMapping = defaultVariantMapping\n    } = props,\n    other = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(props, _excluded);\n  const ownerState = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({}, props, {\n    align,\n    color,\n    className,\n    component,\n    gutterBottom,\n    noWrap,\n    paragraph,\n    variant,\n    variantMapping\n  });\n  const Component = component || (paragraph ? 'p' : variantMapping[variant] || defaultVariantMapping[variant]) || 'span';\n  const classes = useUtilityClasses(ownerState);\n  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TypographyRoot, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({\n    as: Component,\n    ref: ref,\n    ownerState: ownerState,\n    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(classes.root, className)\n  }, other));\n});\n true ? Typography.propTypes /* remove-proptypes */ = {\n  // ┌────────────────────────────── Warning ──────────────────────────────┐\n  // │ These PropTypes are generated from the TypeScript type definitions. │\n  // │    To update them, edit the d.ts file and run `pnpm proptypes`.     │\n  // └─────────────────────────────────────────────────────────────────────┘\n  /**\n   * Set the text-align on the component.\n   * @default 'inherit'\n   */\n  align: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOf(['center', 'inherit', 'justify', 'left', 'right']),\n  /**\n   * The content of the component.\n   */\n  children: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().node),\n  /**\n   * Override or extend the styles applied to the component.\n   */\n  classes: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().object),\n  /**\n   * @ignore\n   */\n  className: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().string),\n  /**\n   * The component used for the root node.\n   * Either a string to use a HTML element or a component.\n   */\n  component: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().elementType),\n  /**\n   * If `true`, the text will have a bottom margin.\n   * @default false\n   */\n  gutterBottom: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),\n  /**\n   * If `true`, the text will not wrap, but instead will truncate with a text overflow ellipsis.\n   *\n   * Note that text overflow can only happen with block or inline-block level elements\n   * (the element needs to have a width in order to overflow).\n   * @default false\n   */\n  noWrap: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),\n  /**\n   * If `true`, the element will be a paragraph element.\n   * @default false\n   */\n  paragraph: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),\n  /**\n   * The system prop that allows defining system overrides as well as additional CSS styles.\n   */\n  sx: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_11___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_11___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_11___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool)])), (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_11___default().object)]),\n  /**\n   * Applies the theme typography styles.\n   * @default 'body1'\n   */\n  variant: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOf(['body1', 'body2', 'button', 'caption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'inherit', 'overline', 'subtitle1', 'subtitle2']), (prop_types__WEBPACK_IMPORTED_MODULE_11___default().string)]),\n  /**\n   * The component maps the variant prop to a range of different HTML element types.\n   * For instance, subtitle1 to `<h6>`.\n   * If you wish to change that mapping, you can provide your own.\n   * Alternatively, you can use the `component` prop.\n   * @default {\n   *   h1: 'h1',\n   *   h2: 'h2',\n   *   h3: 'h3',\n   *   h4: 'h4',\n   *   h5: 'h5',\n   *   h6: 'h6',\n   *   subtitle1: 'h6',\n   *   subtitle2: 'h6',\n   *   body1: 'p',\n   *   body2: 'p',\n   *   inherit: 'p',\n   * }\n   */\n  variantMapping: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().object)\n} : 0;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Typography);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/Typography/Typography.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/Typography/typographyClasses.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@mui/material/Typography/typographyClasses.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   getTypographyUtilityClass: () => (/* binding */ getTypographyUtilityClass)\n/* harmony export */ });\n/* harmony import */ var _mui_utils_generateUtilityClasses__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/utils/generateUtilityClasses */ \"./node_modules/@mui/utils/generateUtilityClasses/generateUtilityClasses.js\");\n/* harmony import */ var _mui_utils_generateUtilityClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils/generateUtilityClass */ \"./node_modules/@mui/utils/generateUtilityClass/generateUtilityClass.js\");\n\n\nfunction getTypographyUtilityClass(slot) {\n  return (0,_mui_utils_generateUtilityClass__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('MuiTypography', slot);\n}\nconst typographyClasses = (0,_mui_utils_generateUtilityClasses__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('MuiTypography', ['root', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2', 'inherit', 'button', 'caption', 'overline', 'alignLeft', 'alignRight', 'alignCenter', 'alignJustify', 'noWrap', 'gutterBottom', 'paragraph']);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (typographyClasses);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/Typography/typographyClasses.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/amber.js":
-/*!****************************************************!*\
-  !*** ./node_modules/@mui/material/colors/amber.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst amber = {\n  50: '#fff8e1',\n  100: '#ffecb3',\n  200: '#ffe082',\n  300: '#ffd54f',\n  400: '#ffca28',\n  500: '#ffc107',\n  600: '#ffb300',\n  700: '#ffa000',\n  800: '#ff8f00',\n  900: '#ff6f00',\n  A100: '#ffe57f',\n  A200: '#ffd740',\n  A400: '#ffc400',\n  A700: '#ffab00'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (amber);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/amber.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/colors/blue.js":
 /*!***************************************************!*\
   !*** ./node_modules/@mui/material/colors/blue.js ***!
@@ -339,28 +284,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/colors/blueGrey.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/@mui/material/colors/blueGrey.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst blueGrey = {\n  50: '#eceff1',\n  100: '#cfd8dc',\n  200: '#b0bec5',\n  300: '#90a4ae',\n  400: '#78909c',\n  500: '#607d8b',\n  600: '#546e7a',\n  700: '#455a64',\n  800: '#37474f',\n  900: '#263238',\n  A100: '#cfd8dc',\n  A200: '#b0bec5',\n  A400: '#78909c',\n  A700: '#455a64'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (blueGrey);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/blueGrey.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/brown.js":
-/*!****************************************************!*\
-  !*** ./node_modules/@mui/material/colors/brown.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst brown = {\n  50: '#efebe9',\n  100: '#d7ccc8',\n  200: '#bcaaa4',\n  300: '#a1887f',\n  400: '#8d6e63',\n  500: '#795548',\n  600: '#6d4c41',\n  700: '#5d4037',\n  800: '#4e342e',\n  900: '#3e2723',\n  A100: '#d7ccc8',\n  A200: '#bcaaa4',\n  A400: '#8d6e63',\n  A700: '#5d4037'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (brown);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/brown.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/colors/common.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/material/colors/common.js ***!
@@ -369,39 +292,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst common = {\n  black: '#000',\n  white: '#fff'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (common);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/common.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/cyan.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@mui/material/colors/cyan.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst cyan = {\n  50: '#e0f7fa',\n  100: '#b2ebf2',\n  200: '#80deea',\n  300: '#4dd0e1',\n  400: '#26c6da',\n  500: '#00bcd4',\n  600: '#00acc1',\n  700: '#0097a7',\n  800: '#00838f',\n  900: '#006064',\n  A100: '#84ffff',\n  A200: '#18ffff',\n  A400: '#00e5ff',\n  A700: '#00b8d4'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cyan);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/cyan.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/deepOrange.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@mui/material/colors/deepOrange.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst deepOrange = {\n  50: '#fbe9e7',\n  100: '#ffccbc',\n  200: '#ffab91',\n  300: '#ff8a65',\n  400: '#ff7043',\n  500: '#ff5722',\n  600: '#f4511e',\n  700: '#e64a19',\n  800: '#d84315',\n  900: '#bf360c',\n  A100: '#ff9e80',\n  A200: '#ff6e40',\n  A400: '#ff3d00',\n  A700: '#dd2c00'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deepOrange);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/deepOrange.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/deepPurple.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@mui/material/colors/deepPurple.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst deepPurple = {\n  50: '#ede7f6',\n  100: '#d1c4e9',\n  200: '#b39ddb',\n  300: '#9575cd',\n  400: '#7e57c2',\n  500: '#673ab7',\n  600: '#5e35b1',\n  700: '#512da8',\n  800: '#4527a0',\n  900: '#311b92',\n  A100: '#b388ff',\n  A200: '#7c4dff',\n  A400: '#651fff',\n  A700: '#6200ea'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deepPurple);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/deepPurple.js?");
 
 /***/ }),
 
@@ -427,28 +317,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/colors/index.js":
-/*!****************************************************!*\
-  !*** ./node_modules/@mui/material/colors/index.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   amber: () => (/* reexport safe */ _amber__WEBPACK_IMPORTED_MODULE_14__[\"default\"]),\n/* harmony export */   blue: () => (/* reexport safe */ _blue__WEBPACK_IMPORTED_MODULE_6__[\"default\"]),\n/* harmony export */   blueGrey: () => (/* reexport safe */ _blueGrey__WEBPACK_IMPORTED_MODULE_19__[\"default\"]),\n/* harmony export */   brown: () => (/* reexport safe */ _brown__WEBPACK_IMPORTED_MODULE_17__[\"default\"]),\n/* harmony export */   common: () => (/* reexport safe */ _common__WEBPACK_IMPORTED_MODULE_0__[\"default\"]),\n/* harmony export */   cyan: () => (/* reexport safe */ _cyan__WEBPACK_IMPORTED_MODULE_8__[\"default\"]),\n/* harmony export */   deepOrange: () => (/* reexport safe */ _deepOrange__WEBPACK_IMPORTED_MODULE_16__[\"default\"]),\n/* harmony export */   deepPurple: () => (/* reexport safe */ _deepPurple__WEBPACK_IMPORTED_MODULE_4__[\"default\"]),\n/* harmony export */   green: () => (/* reexport safe */ _green__WEBPACK_IMPORTED_MODULE_10__[\"default\"]),\n/* harmony export */   grey: () => (/* reexport safe */ _grey__WEBPACK_IMPORTED_MODULE_18__[\"default\"]),\n/* harmony export */   indigo: () => (/* reexport safe */ _indigo__WEBPACK_IMPORTED_MODULE_5__[\"default\"]),\n/* harmony export */   lightBlue: () => (/* reexport safe */ _lightBlue__WEBPACK_IMPORTED_MODULE_7__[\"default\"]),\n/* harmony export */   lightGreen: () => (/* reexport safe */ _lightGreen__WEBPACK_IMPORTED_MODULE_11__[\"default\"]),\n/* harmony export */   lime: () => (/* reexport safe */ _lime__WEBPACK_IMPORTED_MODULE_12__[\"default\"]),\n/* harmony export */   orange: () => (/* reexport safe */ _orange__WEBPACK_IMPORTED_MODULE_15__[\"default\"]),\n/* harmony export */   pink: () => (/* reexport safe */ _pink__WEBPACK_IMPORTED_MODULE_2__[\"default\"]),\n/* harmony export */   purple: () => (/* reexport safe */ _purple__WEBPACK_IMPORTED_MODULE_3__[\"default\"]),\n/* harmony export */   red: () => (/* reexport safe */ _red__WEBPACK_IMPORTED_MODULE_1__[\"default\"]),\n/* harmony export */   teal: () => (/* reexport safe */ _teal__WEBPACK_IMPORTED_MODULE_9__[\"default\"]),\n/* harmony export */   yellow: () => (/* reexport safe */ _yellow__WEBPACK_IMPORTED_MODULE_13__[\"default\"])\n/* harmony export */ });\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ \"./node_modules/@mui/material/colors/common.js\");\n/* harmony import */ var _red__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./red */ \"./node_modules/@mui/material/colors/red.js\");\n/* harmony import */ var _pink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pink */ \"./node_modules/@mui/material/colors/pink.js\");\n/* harmony import */ var _purple__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./purple */ \"./node_modules/@mui/material/colors/purple.js\");\n/* harmony import */ var _deepPurple__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./deepPurple */ \"./node_modules/@mui/material/colors/deepPurple.js\");\n/* harmony import */ var _indigo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./indigo */ \"./node_modules/@mui/material/colors/indigo.js\");\n/* harmony import */ var _blue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blue */ \"./node_modules/@mui/material/colors/blue.js\");\n/* harmony import */ var _lightBlue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lightBlue */ \"./node_modules/@mui/material/colors/lightBlue.js\");\n/* harmony import */ var _cyan__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./cyan */ \"./node_modules/@mui/material/colors/cyan.js\");\n/* harmony import */ var _teal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./teal */ \"./node_modules/@mui/material/colors/teal.js\");\n/* harmony import */ var _green__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./green */ \"./node_modules/@mui/material/colors/green.js\");\n/* harmony import */ var _lightGreen__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lightGreen */ \"./node_modules/@mui/material/colors/lightGreen.js\");\n/* harmony import */ var _lime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lime */ \"./node_modules/@mui/material/colors/lime.js\");\n/* harmony import */ var _yellow__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./yellow */ \"./node_modules/@mui/material/colors/yellow.js\");\n/* harmony import */ var _amber__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./amber */ \"./node_modules/@mui/material/colors/amber.js\");\n/* harmony import */ var _orange__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./orange */ \"./node_modules/@mui/material/colors/orange.js\");\n/* harmony import */ var _deepOrange__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./deepOrange */ \"./node_modules/@mui/material/colors/deepOrange.js\");\n/* harmony import */ var _brown__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./brown */ \"./node_modules/@mui/material/colors/brown.js\");\n/* harmony import */ var _grey__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./grey */ \"./node_modules/@mui/material/colors/grey.js\");\n/* harmony import */ var _blueGrey__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./blueGrey */ \"./node_modules/@mui/material/colors/blueGrey.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/index.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/indigo.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/@mui/material/colors/indigo.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst indigo = {\n  50: '#e8eaf6',\n  100: '#c5cae9',\n  200: '#9fa8da',\n  300: '#7986cb',\n  400: '#5c6bc0',\n  500: '#3f51b5',\n  600: '#3949ab',\n  700: '#303f9f',\n  800: '#283593',\n  900: '#1a237e',\n  A100: '#8c9eff',\n  A200: '#536dfe',\n  A400: '#3d5afe',\n  A700: '#304ffe'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (indigo);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/indigo.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/colors/lightBlue.js":
 /*!********************************************************!*\
   !*** ./node_modules/@mui/material/colors/lightBlue.js ***!
@@ -460,28 +328,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/colors/lightGreen.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@mui/material/colors/lightGreen.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst lightGreen = {\n  50: '#f1f8e9',\n  100: '#dcedc8',\n  200: '#c5e1a5',\n  300: '#aed581',\n  400: '#9ccc65',\n  500: '#8bc34a',\n  600: '#7cb342',\n  700: '#689f38',\n  800: '#558b2f',\n  900: '#33691e',\n  A100: '#ccff90',\n  A200: '#b2ff59',\n  A400: '#76ff03',\n  A700: '#64dd17'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (lightGreen);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/lightGreen.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/lime.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@mui/material/colors/lime.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst lime = {\n  50: '#f9fbe7',\n  100: '#f0f4c3',\n  200: '#e6ee9c',\n  300: '#dce775',\n  400: '#d4e157',\n  500: '#cddc39',\n  600: '#c0ca33',\n  700: '#afb42b',\n  800: '#9e9d24',\n  900: '#827717',\n  A100: '#f4ff81',\n  A200: '#eeff41',\n  A400: '#c6ff00',\n  A700: '#aeea00'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (lime);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/lime.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/colors/orange.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/material/colors/orange.js ***!
@@ -490,17 +336,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst orange = {\n  50: '#fff3e0',\n  100: '#ffe0b2',\n  200: '#ffcc80',\n  300: '#ffb74d',\n  400: '#ffa726',\n  500: '#ff9800',\n  600: '#fb8c00',\n  700: '#f57c00',\n  800: '#ef6c00',\n  900: '#e65100',\n  A100: '#ffd180',\n  A200: '#ffab40',\n  A400: '#ff9100',\n  A700: '#ff6d00'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (orange);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/orange.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/pink.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@mui/material/colors/pink.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst pink = {\n  50: '#fce4ec',\n  100: '#f8bbd0',\n  200: '#f48fb1',\n  300: '#f06292',\n  400: '#ec407a',\n  500: '#e91e63',\n  600: '#d81b60',\n  700: '#c2185b',\n  800: '#ad1457',\n  900: '#880e4f',\n  A100: '#ff80ab',\n  A200: '#ff4081',\n  A400: '#f50057',\n  A700: '#c51162'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (pink);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/pink.js?");
 
 /***/ }),
 
@@ -523,28 +358,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst red = {\n  50: '#ffebee',\n  100: '#ffcdd2',\n  200: '#ef9a9a',\n  300: '#e57373',\n  400: '#ef5350',\n  500: '#f44336',\n  600: '#e53935',\n  700: '#d32f2f',\n  800: '#c62828',\n  900: '#b71c1c',\n  A100: '#ff8a80',\n  A200: '#ff5252',\n  A400: '#ff1744',\n  A700: '#d50000'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (red);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/red.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/teal.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@mui/material/colors/teal.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst teal = {\n  50: '#e0f2f1',\n  100: '#b2dfdb',\n  200: '#80cbc4',\n  300: '#4db6ac',\n  400: '#26a69a',\n  500: '#009688',\n  600: '#00897b',\n  700: '#00796b',\n  800: '#00695c',\n  900: '#004d40',\n  A100: '#a7ffeb',\n  A200: '#64ffda',\n  A400: '#1de9b6',\n  A700: '#00bfa5'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (teal);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/teal.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/colors/yellow.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/@mui/material/colors/yellow.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst yellow = {\n  50: '#fffde7',\n  100: '#fff9c4',\n  200: '#fff59d',\n  300: '#fff176',\n  400: '#ffee58',\n  500: '#ffeb3b',\n  600: '#fdd835',\n  700: '#fbc02d',\n  800: '#f9a825',\n  900: '#f57f17',\n  A100: '#ffff8d',\n  A200: '#ffff00',\n  A400: '#ffea00',\n  A700: '#ffd600'\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (yellow);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/material/colors/yellow.js?");
 
 /***/ }),
 
@@ -820,17 +633,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./merge */ \"./node_modules/@mui/system/esm/merge.js\");\n\nfunction compose(...styles) {\n  const handlers = styles.reduce((acc, style) => {\n    style.filterProps.forEach(prop => {\n      acc[prop] = style;\n    });\n    return acc;\n  }, {});\n\n  // false positive\n  // eslint-disable-next-line react/function-component-definition\n  const fn = props => {\n    return Object.keys(props).reduce((acc, prop) => {\n      if (handlers[prop]) {\n        return (0,_merge__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(acc, handlers[prop](props));\n      }\n      return acc;\n    }, {});\n  };\n  fn.propTypes =  true ? styles.reduce((acc, style) => Object.assign(acc, style.propTypes), {}) : 0;\n  fn.filterProps = styles.reduce((acc, style) => acc.concat(style.filterProps), []);\n  return fn;\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (compose);\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/system/esm/compose.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/system/esm/createBox.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@mui/system/esm/createBox.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createBox)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\n/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ \"./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ \"./node_modules/clsx/dist/clsx.mjs\");\n/* harmony import */ var _mui_styled_engine__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/styled-engine */ \"./node_modules/@mui/styled-engine/index.js\");\n/* harmony import */ var _styleFunctionSx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styleFunctionSx */ \"./node_modules/@mui/system/esm/styleFunctionSx/styleFunctionSx.js\");\n/* harmony import */ var _styleFunctionSx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styleFunctionSx */ \"./node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js\");\n/* harmony import */ var _useTheme__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./useTheme */ \"./node_modules/@mui/system/esm/useTheme.js\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\n'use client';\n\n\n\nconst _excluded = [\"className\", \"component\"];\n\n\n\n\n\n\nfunction createBox(options = {}) {\n  const {\n    themeId,\n    defaultTheme,\n    defaultClassName = 'MuiBox-root',\n    generateClassName\n  } = options;\n  const BoxRoot = (0,_mui_styled_engine__WEBPACK_IMPORTED_MODULE_5__[\"default\"])('div', {\n    shouldForwardProp: prop => prop !== 'theme' && prop !== 'sx' && prop !== 'as'\n  })(_styleFunctionSx__WEBPACK_IMPORTED_MODULE_6__[\"default\"]);\n  const Box = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function Box(inProps, ref) {\n    const theme = (0,_useTheme__WEBPACK_IMPORTED_MODULE_7__[\"default\"])(defaultTheme);\n    const _extendSxProp = (0,_styleFunctionSx__WEBPACK_IMPORTED_MODULE_8__[\"default\"])(inProps),\n      {\n        className,\n        component = 'div'\n      } = _extendSxProp,\n      other = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(_extendSxProp, _excluded);\n    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(BoxRoot, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({\n      as: component,\n      ref: ref,\n      className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(className, generateClassName ? generateClassName(defaultClassName) : defaultClassName),\n      theme: themeId ? theme[themeId] || theme : theme\n    }, other));\n  });\n  return Box;\n}\n\n//# sourceURL=webpack://mental-health-app/./node_modules/@mui/system/esm/createBox.js?");
 
 /***/ }),
 
@@ -1413,7 +1215,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/dist/index.js\");\n/* harmony import */ var _Weather_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Weather.jsx */ \"./client/src/components/Weather.jsx\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Box/Box.js\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Typography/Typography.js\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Button/Button.js\");\n/* harmony import */ var _mui_material_colors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/colors */ \"./node_modules/@mui/material/colors/lightBlue.js\");\n/* harmony import */ var _mui_material_colors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/colors */ \"./node_modules/@mui/material/colors/indigo.js\");\n/* harmony import */ var _mui_material_colors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material/colors */ \"./node_modules/@mui/material/colors/blueGrey.js\");\n/* harmony import */ var _mui_material_colors__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/colors */ \"./node_modules/@mui/material/colors/index.js\");\n\n\n\n\n\nvar HomePage = function HomePage() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    sx: {\n      backgroundColor: _mui_material_colors__WEBPACK_IMPORTED_MODULE_3__[\"default\"][100],\n      minHeight: '100vh',\n      padding: '20px'\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    sx: {\n      backgroundColor: _mui_material_colors__WEBPACK_IMPORTED_MODULE_4__[\"default\"][100],\n      padding: '10px',\n      marginBottom: '20px',\n      borderRadius: '10px'\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__[\"default\"], {\n    variant: \"h2\"\n  }, \"Welcome!\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Weather_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    sx: {\n      backgroundColor: _mui_material_colors__WEBPACK_IMPORTED_MODULE_4__[\"default\"][100],\n      padding: '10px',\n      marginBottom: '20px',\n      borderRadius: '10px'\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__[\"default\"], {\n    variant: \"body1\"\n  }, \"What would you like to do today?\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    sx: {\n      display: 'flex',\n      gap: '10px'\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {\n    to: \"/journal\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"contained\",\n    sx: {\n      backgroundColor: _mui_material_colors__WEBPACK_IMPORTED_MODULE_8__[\"default\"][800],\n      color: _mui_material_colors__WEBPACK_IMPORTED_MODULE_9__.white\n    }\n  }, \"Journal\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {\n    to: \"/habits\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"contained\",\n    sx: {\n      backgroundColor: _mui_material_colors__WEBPACK_IMPORTED_MODULE_8__[\"default\"][800],\n      color: _mui_material_colors__WEBPACK_IMPORTED_MODULE_9__.white\n    }\n  }, \"Track my habits\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {\n    to: \"/moods\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"contained\",\n    sx: {\n      backgroundColor: _mui_material_colors__WEBPACK_IMPORTED_MODULE_8__[\"default\"][800],\n      color: _mui_material_colors__WEBPACK_IMPORTED_MODULE_9__.white\n    }\n  }, \"How do you feel today?\"))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomePage);\n\n//# sourceURL=webpack://mental-health-app/./client/src/components/HomePage.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/dist/index.js\");\n/* harmony import */ var _Weather_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Weather.jsx */ \"./client/src/components/Weather.jsx\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Button/Button.js\");\n\n\n\n\nvar HomePage = function HomePage() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h2\", null, \"Welcome!\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Weather_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"What would you like to do today?\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {\n    to: \"/journal\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    variant: \"text\"\n  }, \"Journal\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {\n    to: \"/habits\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    variant: \"text\"\n  }, \"Track my habits\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {\n    to: \"/moods\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    variant: \"text\"\n  }, \"How do you feel today?\"))));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomePage);\n\n//# sourceURL=webpack://mental-health-app/./client/src/components/HomePage.jsx?");
 
 /***/ }),
 
