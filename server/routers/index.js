@@ -23,5 +23,6 @@ router.route('/:UserId/journal/:id').delete(journalController.deleteJournalEntry
 router.route('/:UserId/habits').get(habitsController.getHabits);
 router.route('/:UserId/habits').post(habitsController.postHabit);
 router.route('/:HabitId/habits').patch(habitsController.updateHabit);
+router.route('/:HabitId/habits').delete(habitsController.deleteHabit);
 
 module.exports = router;
