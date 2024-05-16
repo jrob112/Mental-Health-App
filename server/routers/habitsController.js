@@ -76,4 +76,21 @@ module.exports = {
         res.sendStatus(500);
       });
   },
+
+  deleteHabit: (req, res) => {
+    const { HabitId } = req.params;
+
+    Habits.destroy({
+      where: {
+        id: HabitId,
+      },
+    })
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  },
 };
