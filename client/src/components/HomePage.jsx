@@ -1,20 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Weather from './Weather.jsx';
-import { Button } from '@mui/material';
+import { Button, Typography, Box } from '@mui/material';
+import { blueGrey, lightBlue, grey, white, indigo, deepPurple, pink } from '@mui/material/colors';
 
 const HomePage = () => {
   return (
-    <div>
-      <h2>Welcome!</h2>
+    <Box
+      sx={{
+        backgroundColor: lightBlue[100],
+        minHeight: '100vh',
+        padding: '20px',
+      }}
+    >
+      <Box
+        sx={{
+          backgroundColor: indigo[100],
+          padding: '10px',
+          marginBottom: '20px',
+          borderRadius: '10px',
+        }}
+      >
+        <Typography variant="h2">Welcome!</Typography>
+      </Box>
       <Weather />
-      <p>What would you like to do today?</p>
-      <div>
-        <Link to="/journal"><Button variant="text">Journal</Button></Link>
-        <Link to="/habits"><Button variant="text">Track my habits</Button></Link>
-        <Link to="/moods"><Button variant="text">How do you feel today?</Button></Link>
-      </div>
-    </div>
+      <Box
+        sx={{
+          backgroundColor: indigo[100],
+          padding: '10px',
+          marginBottom: '20px',
+          borderRadius: '10px',
+        }}
+      >
+        <Typography variant="body1">What would you like to do today?</Typography>
+      </Box>
+      <Box sx={{ display: 'flex', gap: '10px' }}>
+        <Link to="/journal">
+          <Button variant="contained" sx={{ backgroundColor: blueGrey[800], color: white }}>Journal</Button>
+        </Link>
+        <Link to="/habits">
+          <Button variant="contained" sx={{ backgroundColor: blueGrey[800], color: white }}>Track my habits</Button>
+        </Link>
+        <Link to="/moods">
+          <Button variant="contained" sx={{ backgroundColor: blueGrey[800], color: white }}>How do you feel today?</Button>
+        </Link>
+      </Box>
+    </Box>
   );
 };
 
