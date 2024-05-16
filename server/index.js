@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
-const passport = require('passport')
+const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const bodyParser = require('body-parser');
 const requestIp = require('request-ip');
@@ -33,14 +33,17 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new GoogleStrategy({
-  clientID: GOOGLE_CLIENT_ID,
-  clientSecret: GOOGLE_CLIENT_SECRET,
-  callbackURL: `/auth/google/callback`,
-  passReqToCallback: true,
-},
-  authUser
-))
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
+      callbackURL: `/auth/google/callback`,
+      passReqToCallback: true,
+    },
+    authUser,
+  ),
+);
 
 passport.serializeUser((user, done) => {
   done(null, user)
@@ -50,8 +53,8 @@ passport.deserializeUser((user, done) => {
   // This is the {user} that was saved in req.session.passport.user.{user} in the serializationUser()
   // deserializeUser will attach this {user} to the "req.user.{user}", so that it can be used anywhere in the App.
 
-  done (null, user)
-})
+  done(null, user);
+});
 
 app.use(express.static(DIST_PATH));
 app.use(bodyParser.json())
@@ -65,11 +68,13 @@ app.get('/auth/google',
       [ 'email', 'profile' ] }
 ));
 
-app.get('/auth/google/callback',
-    passport.authenticate( 'google', {
-        successRedirect: '/home',
-        failureRedirect: '/'
-}));
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', {
+    successRedirect: '/home',
+    failureRedirect: '/',
+  }),
+);
 
 app.get('*', isAuthenticated, (req, res) => {
   res.sendFile(path.join(DIST_PATH, 'index.html'));
