@@ -6,7 +6,7 @@ module.exports = {
     const id = 2;
     User.findByPk(id, {include: ['Journals']})
     .then((user) => {
-      if (user) { res.send(user.Journals); }
+      if (user) { res.send(user.Journals.toReversed()); }
       else { res.sendStatus(404) }
     })
     .catch((err) => {
