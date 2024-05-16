@@ -25,7 +25,6 @@ module.exports = {
   updateHabit: (req, res) => {
     const { HabitId } = req.params;
     const { goal, timesCompleted } = req.body;
-    console.log('hi', HabitId, goal, timesCompleted);
     let isComplete = false;
     if (timesCompleted === goal) {
       isComplete === true;
@@ -55,7 +54,8 @@ module.exports = {
    * @returns {status} 201 || err
    */
   postHabit: (req, res) => {
-    const { UserId } = req.params;
+    console.log(req.user[0], req.cookies);
+    // const { UserId } = req.params;
     const { goal, description } = req.body;
 
     const numGoal = Number(goal);
@@ -66,7 +66,7 @@ module.exports = {
       timesCompleted: 0,
       isComplete: false,
       streak: 0,
-      UserId,
+      UserId: req.user[0].id,
     })
       .then(() => {
         res.sendStatus(201);
