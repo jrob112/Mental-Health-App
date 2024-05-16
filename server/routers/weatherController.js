@@ -6,23 +6,19 @@ module.exports = {
     const userIpAddress = req.clientIp;
     console.log('user ip addy', userIpAddress);
 
-    axios.get(`http://ip-api.com/json/${userIpAddress}?fields=city`)
+    axios.get(`http://ip-api.com/json/${userIpAddress}?fields=city,region,countryCode`)
       .then((ipResponse) => {
-        console.log('ip api response', ipResponse.data);
 
         const userCity = ipResponse.data.city;
-        const userState = ipResponse.data.state;
-        console.log('user city', userCity);
-        console.log('user state', userState);
+        const userState = ipResponse.data.region;
+        const userCountryCode = ipResponse.data.countryCode;
 
         const apiKey = process.env.VISUAL_CROSSING_API_KEY;
-        const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userCity},${userState}/today?unitGroup=metric&contentType=json&key=${apiKey}`;
-        console.log('weather api url', apiUrl);
+        const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${userCity},${userState},${userCountryCode}/today?unitGroup=metric&contentType=json&key=${apiKey}`;
 
         return axios.get(apiUrl);
       })
       .then((weatherResponse) => {
-        console.log('weather api response', weatherResponse.data)
         res.json(weatherResponse.data);
       })
       .catch((err) => {
