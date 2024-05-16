@@ -23,7 +23,7 @@ const lorem = new loremIpsum();
           location: lorem.generateWords(2),
           googleId: '0001',
       })
-    ))
+    )
     .then((user) => {
       user1 = user;
       console.log(user1);
@@ -48,7 +48,7 @@ const lorem = new loremIpsum();
           location: lorem.generateWords(2),
           googleId: '0002'
       })
-    ))
+    )
     .then((user) => {
       user2 = user;
       console.log(user2);
@@ -74,6 +74,7 @@ const lorem = new loremIpsum();
         timesCompleted: 2,
         isComplete: false,
         streak: 3,
+        UserId: user2.id
       })
     })
     .then(() => {
