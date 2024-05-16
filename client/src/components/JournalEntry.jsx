@@ -20,6 +20,9 @@ const JournalEntry = () => {
       .then(({data}) => {
         setJournal(data);
       })
+      .catch((err) => {
+        console.error('Could not get journal entry: ', err)
+      })
   }, [journalRef])
 
   const cancelEdit = () => {
