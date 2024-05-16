@@ -4,10 +4,12 @@ import HomePage from './HomePage.jsx';
 import Journal from './Journal.jsx';
 import Login from './Login.jsx';
 import JournalEntry from './JournalEntry.jsx';
+import NavBar from './NavBar.jsx';
 
 const App = () => {
   return (
     <>
+      <NavBar />
       <Routes>
         <Route path='/home' element={<HomePage />} />
         <Route path='/' element={<Login />}/>

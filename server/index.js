@@ -5,6 +5,7 @@ const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const bodyParser = require('body-parser');
 const requestIp = require('request-ip');
+const isAuthenticated = require('./middleware/auth.js');
 
 const { User } = require('./db');
 const routes = require('./routers');
@@ -70,8 +71,8 @@ app.get('/auth/google/callback',
         failureRedirect: '/'
 }));
 
-app.get('*', (req, res) => {
+app.get('*', isAuthenticated, (req, res) => {
   res.sendFile(path.join(DIST_PATH, 'index.html'));
 });
 
-app.listen(PORT, () => {console.info(`Server listening on http://127.0.0.1:${PORT}`)});
+app.listen(PORT, () => {console.info(`Server listening on http://localhost:${PORT}`)});
