@@ -16,7 +16,7 @@ const JournalEntry = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`/api/${userId}/journal/${id}`)
+    axios.get(`/api/journal/${id}`)
       .then(({data}) => {
         setJournal(data);
       })
@@ -29,7 +29,7 @@ const JournalEntry = () => {
   }
 
   const submitEdit = () => {
-    axios.put(`/api/${userId}/journal/${journal.id}`, {updatedJournal: {title, body}})
+    axios.put(`/api/journal/${journal.id}`, {updatedJournal: {title, body}})
       .then(({data}) => {
         if (data === 'OK') {
           setJournal({...journal, title, body})

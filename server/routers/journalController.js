@@ -2,8 +2,9 @@ const { Journals, User } = require('../db');
 
 module.exports = {
   getJournals: (req, res) => {
-    const { UserId } = req.params;
-    User.findByPk(UserId, {include: ['Journals']})
+    //const { id } = req.user[0];
+    const id = 2;
+    User.findByPk(id, {include: ['Journals']})
     .then((user) => {
       if (user) { res.send(user.Journals); }
       else { res.sendStatus(404) }
@@ -14,9 +15,9 @@ module.exports = {
     });
   },
   addJournal: (req, res) => {
-    const { UserId } = req.params;
+    const { id } = req.user[0];
     const { journal } = req.body;
-    User.findByPk(UserId)
+    User.findByPk(id)
       .then((user) => {
         if (user) { return Journals.create({...journal, UserId: user.id}); }
         else { throw 'No User' }
@@ -35,7 +36,8 @@ module.exports = {
       });
   },
   getJournalEntry: (req, res) => {
-    const { UserId, id } = req.params;
+    const UserId = req.user[0].id;
+    const { id } = req.params;
     Journals.findByPk(id)
       .then((journalEntry) => {
         if (journalEntry.UserId === +UserId) {
@@ -56,7 +58,8 @@ module.exports = {
       });
   },
   updateJournalEntry: (req, res) => {
-    const {UserId, id} = req.params;
+    const UserId = req.user[0].id;
+    const { id } = req.params;
     const { updatedJournal } = req.body;
     Journals.update(updatedJournal, {where: {id: +id, UserId: +UserId}})
       .then((data) => {
@@ -78,7 +81,8 @@ module.exports = {
       });
   },
   deleteJournalEntry: (req, res) => {
-    const {UserId, id} = req.params;
+    const UserId = req.user[0].id;
+    const { id } = req.params;
     Journals.destroy({where: {id: +id, UserId: +UserId}})
       .then((data) => {
         if (data > 0) {

@@ -3,23 +3,21 @@ import axios from 'axios';
 import { Typography, Button, TextField } from "@mui/material";
 import JournalBar from "./JournalBar.jsx";
 
-const userId = 2
-
 const Journal = () => {
 
   const getJournals = () => {
-    axios.get(`/api/${userId}/journal`)
+    axios.get(`/api/journal`)
     .then(({ data }) => { setJournals(data);})
     .catch((err) => console.error('Could not get journal entries: ', err));
   }
 
   const deleteJournal = (id) => {
-    axios.delete(`/api/${userId}/journal/${id}`)
+    axios.delete(`/api/journal/${id}`)
       .then(() => { getJournals(); })
   }
 
   const onSubmit = () => {
-    axios.post(`/api/${userId}/journal`, {journal: {title, body}})
+    axios.post(`/api/journal`, {journal: {title, body}})
       .then(() => { getJournals(); })
       .catch((err) => console.error('Could not post journal: ', err))
   };
