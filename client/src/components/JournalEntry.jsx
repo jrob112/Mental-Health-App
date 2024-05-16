@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams } from 'react-router-dom';
-import { Typography, TextField, Button, ButtonGroup } from "@mui/material";
+import { Typography, TextField, Button, ButtonGroup, Box } from "@mui/material";
 import axios from "axios";
 import dayjs from "dayjs";
 
@@ -79,7 +79,17 @@ const JournalEntry = () => {
           rows={6}
           variant="filled"
         /> :
-        <Typography variant="p">{journal.body}</Typography>
+        <Box
+        sx={{
+          display: "flex",
+          flexDirection: 'column'
+        }}
+        >
+        { journal.body === undefined ?
+          <div></div> :
+          journal.body.split('\n').map(paragraph => <Typography variant="p" gutterBottom>{paragraph}</Typography>)
+        }
+        </Box>
       }
     </>
   )
