@@ -1,16 +1,12 @@
 import React from "react";
+import MoodsChart from "./MoodsChart.jsx";
 
 const moodsArr = [
-  [1, "Sad"],
-  [2, "Sad"],
-  [3, "Sad"],
-  [4, "Sad"],
-  [5, "Sad"],
-  [6, "Sad"],
-  [7, "Sad"],
-  [8, "Sad"],
-  [9, "Sad"],
-  [10, "Happy"]
+  "Happy",
+  "Hopeful",
+  "Content",
+  "Worried",
+  "Sad"
 ]
 
 
@@ -20,6 +16,7 @@ const Moods = () => {
       <ul>
         { moodsArr.map((mood, i) => <li key={i}>{mood}</li>)}
       </ul>
+      <MoodsChart />
     </div>
   )
 };
