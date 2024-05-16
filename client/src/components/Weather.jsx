@@ -3,6 +3,8 @@
   // kinda like componentDidMount
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { Typography, Box } from '@mui/material';
+import { styleOrangeBox } from './styles.js';
 
 const Weather = () => {
   // first value holds the current state, second value is the function that allows you to update the state
@@ -45,16 +47,16 @@ const Weather = () => {
   };
 
   return (
-    <div>
+    <Box sx={styleOrangeBox}>
       {weatherData ? (
         <div>
-          <p>Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F</p>
-          <p>Weather Conditions: {weatherData.days[0].description}</p>
+          <Typography variant="body1">Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F</Typography>
+          <Typography variant="body1">Weather Conditions: {weatherData.days[0].description}</Typography>
         </div>
       ) : (
-        <p>Loading...</p>
+        <Typography variant="body1">Loading...</Typography>
       )}
-    </div>
+    </Box>
   );
 };
 
