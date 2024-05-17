@@ -50,11 +50,35 @@ const Weather = () => {
     <Box sx={styleOrangeBox}>
       {weatherData ? (
         <div>
-          <Typography variant="body1">Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F</Typography>
-          <Typography variant="body1">Weather Conditions: {weatherData.days[0].description}</Typography>
+          {/* <Typography variant="body1">Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F</Typography> */}
+          <Typography
+            variant="body1"
+            sx={{
+              fontFamily: 'Voguella, sans-serif',
+            }}
+          >
+            Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F
+          </Typography>
+          {/* <Typography variant="body1">Weather Conditions: {weatherData.days[0].description}</Typography> */}
+          <Typography
+            variant="body1"
+            sx={{
+              fontFamily: 'Voguella, sans-serif',
+            }}
+          >
+            Weather Conditions: {weatherData.days[0].description}
+          </Typography>
         </div>
       ) : (
-        <Typography variant="body1">Loading...</Typography>
+        // <Typography variant="body1">Loading...</Typography>
+        <Typography
+        variant="body1"
+        sx={{
+          fontFamily: 'Voguella, sans-serif',
+        }}
+      >
+        Loading...
+      </Typography>
       )}
     </Box>
   );

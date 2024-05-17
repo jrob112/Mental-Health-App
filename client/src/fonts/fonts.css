@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Voguella';
+  src: url('./Voguella.ttf') format('truetype');
+}
+
+.homePage {
+  font-family: 'Voguella' sans-serif;
+}
