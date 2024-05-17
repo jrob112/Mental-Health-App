@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams } from 'react-router-dom';
-import { Typography, TextField, Button, ButtonGroup, Box } from "@mui/material";
+import { Typography, TextField, Button, ButtonGroup, Box, Divider } from "@mui/material";
+import { typographyFontVougella, pageBackground, styleRedButton, styleOrangeBox } from "./styles.js";
 import axios from "axios";
 import dayjs from "dayjs";
 
-
-const userId = 2
 
 const JournalEntry = () => {
   const [journal, setJournal] = useState({})
@@ -48,7 +47,7 @@ const JournalEntry = () => {
   }
 
   return (
-    <>
+    <Box sx={pageBackground}>
       {
         editMode ?
         <TextField
@@ -58,7 +57,7 @@ const JournalEntry = () => {
           label="Title"
           variant="filled"
         /> :
-        <Typography variant="h1">{journal.title}</Typography>
+        <Typography variant="h1" sx={typographyFontVougella}>{journal.title}</Typography>
       }
       {
         editMode ?
@@ -66,8 +65,9 @@ const JournalEntry = () => {
           <Button variant="contained" color="success" onClick={submitEdit}>Submit</Button>
           <Button variant="contained" color="error" onClick={cancelEdit}>Cancel</Button>
         </ButtonGroup> :
-        <Button variant="contained" onClick={cancelEdit}>Edit</Button>}
-      <Typography variant="h3">{dayjs(journal.createdAt).format('MMM-D-YYYY')}</Typography>
+        <Button variant="contained" onClick={cancelEdit} sx={styleRedButton}>Edit</Button>}
+      <Typography variant="h3" sx={typographyFontVougella}>{dayjs(journal.createdAt).format('MMM-D-YYYY')}</Typography>
+      <Divider />
       {
         editMode ?
         <TextField
@@ -87,11 +87,11 @@ const JournalEntry = () => {
         >
         { journal.body === undefined ?
           <div></div> :
-          journal.body.split('\n').map(paragraph => <Typography variant="p" gutterBottom>{paragraph}</Typography>)
+          journal.body.split('\n').map(paragraph => <Typography variant="p" gutterBottom sx={typographyFontVougella}>{paragraph}</Typography>)
         }
         </Box>
       }
-    </>
+    </Box>
   )
 }
 
