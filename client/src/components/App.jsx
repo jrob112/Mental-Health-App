@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Drawer, Button } from '@mui/material';
+import { red } from '@mui/material/colors';
 import HomePage from './HomePage.jsx';
 import Journal from './Journal.jsx';
 import Login from './Login.jsx';
@@ -22,7 +23,7 @@ const App = () => {
     <>
       { location.pathname === '/' ? <div></div> :
         <>
-          <Button onClick={toggleDrawer}><MenuIcon /></Button>
+          <Button sx={{color: red[300]}} onClick={toggleDrawer}><MenuIcon /></Button>
           <Drawer open={open} onClose={toggleDrawer}>
             <DrawerContents />
           </Drawer>
