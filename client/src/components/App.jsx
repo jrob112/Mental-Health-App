@@ -1,14 +1,15 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import HomePage from './HomePage.jsx';
 import Journal from './Journal.jsx';
 import Login from './Login.jsx';
 import NavBar from './NavBar.jsx';
 
 const App = () => {
+  const location = useLocation();
   return (
     <>
-      <NavBar />
+      { location.pathname === '/' ? <div></div> : <NavBar />}
       <Routes>
         <Route path='/home' element={<HomePage />} />
         <Route path='/journal' element={<Journal />} />
