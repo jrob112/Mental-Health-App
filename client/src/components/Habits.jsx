@@ -9,21 +9,31 @@ export default function () {
   const [habits, setHabits] = useState([]);
   const habitsRef = useRef(habits);
 
-  useEffect(() => {
+  const getAllHabits = () => {
     axios
       .get(`/api/${userId}/habits`)
       .then((response) => {
         setHabits(response.data);
       })
       .catch((err) => console.error('Could not get journal entries: ', err));
+  };
+
+  useEffect(() => {
+    getAllHabits();
   }, [habitsRef]);
 
   return (
     <>
-        <h1> Habits </h1>
-        <HabitForm />
+      <h1> Habits </h1>
+      <HabitForm />
       {habits.map((habit) => {
-        return <HabitElement habit={habit} key={`${habit.description}-${habit.id}`}/>;
+        return (
+          <HabitElement
+            getAllHabits={getAllHabits}
+            habit={habit}
+            key={`${habit.description}-${habit.id}`}
+          />
+        );
       })}
     </>
   );
