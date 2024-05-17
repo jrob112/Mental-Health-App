@@ -3,6 +3,6 @@
   src: url('./Voguella.ttf') format('truetype');
 }
 
-.homePage {
-  font-family: 'Voguella' sans-serif;
+body {
+  font-family: 'Voguella', sans-serif;
 }
