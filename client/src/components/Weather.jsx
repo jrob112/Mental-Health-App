@@ -1,8 +1,10 @@
 // useState = hooks to manage state
 // useEffect = perform side effects in component
   // kinda like componentDidMount
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { Typography, Box } from '@mui/material';
+import { styleOrangeBox } from './styles.js';
 
 const Weather = () => {
   // first value holds the current state, second value is the function that allows you to update the state
@@ -11,6 +13,7 @@ const Weather = () => {
   // setWeatherData = use to update weatherData
     // when it is called, it will trigger a re-render of the component with the updated state
   const [weatherData, setWeatherData] = useState(null);
+  const weatherRef = useRef(weatherData);
 
   // get weather data from the API using axios get req
   const getWeatherData = () => {
@@ -36,7 +39,7 @@ const Weather = () => {
     // SPECIFICALLY when the component becomes part of the DOM
   useEffect(() => {
     getWeatherData();
-  }, []);
+  }, [weatherRef]);
 
   // my api gives temp in celsius so i need to change it to fahrenheit
   const toFahrenheit = (celsius) => {
@@ -44,16 +47,40 @@ const Weather = () => {
   };
 
   return (
-    <div>
+    <Box sx={styleOrangeBox}>
       {weatherData ? (
         <div>
-          <p>Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F</p>
-          <p>Weather Conditions: {weatherData.days[0].description}</p>
+          {/* <Typography variant="body1">Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F</Typography> */}
+          <Typography
+            variant="body1"
+            sx={{
+              fontFamily: 'Voguella, sans-serif',
+            }}
+          >
+            Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F
+          </Typography>
+          {/* <Typography variant="body1">Weather Conditions: {weatherData.days[0].description}</Typography> */}
+          <Typography
+            variant="body1"
+            sx={{
+              fontFamily: 'Voguella, sans-serif',
+            }}
+          >
+            Weather Conditions: {weatherData.days[0].description}
+          </Typography>
         </div>
       ) : (
-        <p>Loading...</p>
+        // <Typography variant="body1">Loading...</Typography>
+        <Typography
+        variant="body1"
+        sx={{
+          fontFamily: 'Voguella, sans-serif',
+        }}
+      >
+        Loading...
+      </Typography>
       )}
-    </div>
+    </Box>
   );
 };
 

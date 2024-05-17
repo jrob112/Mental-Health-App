@@ -9,7 +9,7 @@ const router = express.Router();
 router.route('/weather').get(weatherController.getWeather);
 
 // User Routers
-router.route('/user/:UserId').get(userController.getUser);
+router.route('/user').get(userController.getUser);
 router.route('/user').post(userController.addUser);
 
 // Journal Routers
