@@ -43,7 +43,7 @@ const Weather = () => {
 
   // my api gives temp in celsius so i need to change it to fahrenheit
   const toFahrenheit = (celsius) => {
-    return (celsius * 9/5) + 32;
+    return Math.floor(((celsius * 9/5) + 32) * 100) / 100;
   };
 
   return (
