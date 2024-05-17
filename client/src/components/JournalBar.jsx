@@ -5,9 +5,13 @@ import Carousel from 'react-material-ui-carousel'
 
 const JournalBar = ({ journals, deleteJournal }) => {
   return (
-    <Carousel>
-      {journals.map(journal => <JournalBarItem journal={journal} deleteJournal={deleteJournal} key={journal.id} />)}
-    </Carousel>
+    <Box
+      sx={{maxWidth: 600}}
+    >
+      <Carousel>
+        {journals.map(journal => <JournalBarItem journal={journal} deleteJournal={deleteJournal} key={journal.id} />)}
+      </Carousel>
+    </Box>
   )
 }
 

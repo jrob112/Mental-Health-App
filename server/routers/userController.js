@@ -2,8 +2,9 @@ const { User } = require('../db');
 
 module.exports = {
   getUser: (req, res) => {
-    const { UserId } = req.params;
-    User.findByPk(UserId, {include: ['Journals', 'Habits', 'Moods']})
+    const { id } = req.user[0];
+    const userId = id;
+    User.findByPk(userId, {include: ['Journals', 'Habits', 'Moods']})
       .then((user) => {
         res.send(user);
       })
