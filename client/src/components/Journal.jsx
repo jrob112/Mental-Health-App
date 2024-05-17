@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from 'axios';
-import { Typography, Button, TextField } from "@mui/material";
+import { Typography, Button, TextField, Box } from "@mui/material";
 import JournalBar from "./JournalBar.jsx";
 
 const Journal = () => {
@@ -35,26 +35,34 @@ const Journal = () => {
       <Typography variant="h2" gutterBottom>
         Journal
       </Typography>
-      <TextField
-        value={title}
-        onChange={(e) => {setTitle(e.target.value)}}
-        id="filled-multiline-flexible"
-        label="Title"
-        variant="filled"
-        />
-      <TextField
-        onChange={(e) => {setBody(e.target.value)}}
-        value={body}
-        id="standard-multiline-static"
-        label="Whats on your mind?"
-        multiline
-        rows={6}
-        variant="filled"
-        />
-      <Button
-      variant="contained"
-        onClick={onSubmit}
-      >Save Journal</Button>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          maxWidth: 600,
+          }}
+      >
+        <TextField
+          value={title}
+          onChange={(e) => {setTitle(e.target.value)}}
+          id="filled-multiline-flexible"
+          label="Title"
+          variant="filled"
+          />
+        <TextField
+          onChange={(e) => {setBody(e.target.value)}}
+          value={body}
+          id="standard-multiline-static"
+          label="Whats on your mind?"
+          multiline
+          rows={6}
+          variant="filled"
+          />
+        <Button
+        variant="contained"
+          onClick={onSubmit}
+        >Save Journal</Button>
+      </Box>
     </>
   )
 }
