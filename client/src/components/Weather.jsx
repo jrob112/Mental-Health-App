@@ -50,7 +50,6 @@ const Weather = () => {
     <Box sx={styleOrangeBox}>
       {weatherData ? (
         <div>
-          {/* <Typography variant="body1">Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F</Typography> */}
           <Typography
             variant="body1"
             sx={{
@@ -59,7 +58,6 @@ const Weather = () => {
           >
             Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F
           </Typography>
-          {/* <Typography variant="body1">Weather Conditions: {weatherData.days[0].description}</Typography> */}
           <Typography
             variant="body1"
             sx={{
@@ -70,7 +68,6 @@ const Weather = () => {
           </Typography>
         </div>
       ) : (
-        // <Typography variant="body1">Loading...</Typography>
         <Typography
         variant="body1"
         sx={{
