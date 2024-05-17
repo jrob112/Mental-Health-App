@@ -1,16 +1,18 @@
 import axios from 'axios';
 import React from 'react';
 
-export default function ({ habit }) {
+export default function ({ habit, getAllHabits }) {
   const updateHabit = () => {
     axios.patch(`/api/${habit.id}/habits`, {
       goal: habit.goal,
       timesCompleted: habit.timesCompleted + 1,
-    });
+    })
+    .then(getAllHabits);
   };
 
   const deleteHabit = () => {
     axios.delete(`/api/${habit.id}/habits`)
+    .then(getAllHabits)
   };
   return (
     <>
