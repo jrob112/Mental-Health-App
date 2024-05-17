@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Weather from './Weather.jsx';
 import { Button, Typography, Box } from '@mui/material';
 import backgroundImage from './floweraura.jpeg';
 import { styleOrangeBox, styleRedButton } from './styles.js';
 
 const HomePage = () => {
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    axios.get(`/api/user`)
+      .then((response) => {
+        const user = response.data;
+        setUserName(user.username);
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+      });
+  }, []);
+
   return (
     <div className='homePage'>
       <Box
@@ -24,7 +38,7 @@ const HomePage = () => {
               fontFamily: 'Voguella, sans-serif',
             }}
           >
-            Welcome!
+            Welcome {userName}!
           </Typography>
         </Box>
         <Weather />
