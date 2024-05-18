@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import axios from 'axios';
 import { Typography, Button, TextField, Box } from "@mui/material";
 import JournalBar from "./JournalBar.jsx";
+import BookIcon from '@mui/icons-material/Book';
+import { typographyFontVougella, pageBackground, styleRedButton, styleOrangeBox } from "./styles.js";
 
 const Journal = () => {
 
@@ -30,11 +32,13 @@ const Journal = () => {
   useEffect(getJournals, [journalsRef])
 
   return (
-    <>
-      <JournalBar journals={journals} deleteJournal={deleteJournal}/>
-      <Typography variant="h2" gutterBottom>
-        Journal
-      </Typography>
+    <Box sx={pageBackground}>
+      <Box sx={{...styleOrangeBox, display: 'inline-flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+        <Typography variant="h2" sx={typographyFontVougella}>
+          Journal
+        </Typography>
+        <BookIcon fontSize="large" />
+      </Box>
       <Box
         sx={{
           display: 'flex',
@@ -59,11 +63,13 @@ const Journal = () => {
           variant="filled"
           />
         <Button
-        variant="contained"
+          sx={styleRedButton}
+          variant="contained"
           onClick={onSubmit}
         >Save Journal</Button>
+        <JournalBar journals={journals} deleteJournal={deleteJournal}/>
       </Box>
-    </>
+    </Box>
   )
 }
 
