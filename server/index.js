@@ -76,9 +76,10 @@ app.get(
   }),
 );
 
-app.post("/auth/logout", (req,res) => {
-  req.logOut()
-  res.redirect("/")
+app.post("/auth/logout", (req,res, next) => {
+  req.logOut((err) => {
+    console.error(err)
+  })
 })
 
 app.get('*', isAuthenticated, (req, res) => {

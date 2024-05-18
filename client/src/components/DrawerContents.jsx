@@ -7,8 +7,17 @@ import HomeIcon from '@mui/icons-material/Home';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import { styleRedButton } from "./styles";
 import LogoutIcon from '@mui/icons-material/Logout';
+import axios from 'axios';
 
 const DrawerContents = () => {
+
+  const handleLogout = () => {
+    axios.post('/auth/logout')
+      .catch((err) => {
+        console.error('Could not logout: ', err)
+      })
+  }
+
   return (
     <Box
       sx={{ flexDirection: 'column', minWidth: 150 }}
@@ -27,10 +36,11 @@ const DrawerContents = () => {
         <ListItem>
           <NavLink to='/moods'><Button sx={{ ...styleRedButton, color: 'white', width: 125 }} variant="contained"><EmojiEmotionsIcon sx={{marginRight: 1, color: 'white'}}/>Moods</Button></NavLink>
         </ListItem>
+          <Divider />
+        <ListItem>
+            <NavLink to='/'><Button onClick={handleLogout} sx={{ ...styleRedButton, color: 'white', width: 125 }} variant="contained"><LogoutIcon sx={{marginRight: 1, color: 'white'}}/>Logout</Button></NavLink>
+        </ListItem>
       </List>
-      <Box sx={{marginTop: 1/1}}>
-        <Button><LogoutIcon sx={{marginRight: 1}}/> Logout</Button>
-      </Box>
     </Box>
   )
 }
