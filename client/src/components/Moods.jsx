@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import axios from 'axios';
 import MoodsChart from "./MoodsChart.jsx";
 import { Button, Typography, Box } from '@mui/material';
 import backgroundImage from './floweraura.jpeg';
@@ -10,14 +11,30 @@ const Moods = () => {
   const moodsArr = ['HAPPY', 'HOPEFUL', 'CONTENT', 'WORRIED', 'SAD'];
   const emojiArr = ['😁', '🙂', '🤨', '😟', '😞'];
   
-  const [dataArr, setDataArr] = useState([12, 19, 3, 5, 2]);
-  const updateMood = (e) => {
-    const newDataArr = dataArr.slice();
-    newDataArr[moodsArr.indexOf(e.target.innerText.slice(2))]++
-    setDataArr(newDataArr);
-    console.log('e.target.innerText', e.target.innerText.slice(2));
-    console.log('DataArr', dataArr);
+  const getMoods = () => {
+    axios.get(`/api/moods`)
+    .then(({ data }) => { setDataArr(data);})
+    .catch((err) => console.error('Could not get moods: ', err));
   };
+
+  // const [moods, setMoods] = useState([]);
+  const [dataArr, setDataArr] = useState([0, 0, 0, 0, 0]);
+  const moodsRef = useRef(dataArr);
+
+  useEffect(getMoods, [moodsRef])
+
+  const updateMood = (e) => {
+    axios.post(`/api/moods`, {dataArr: {dataArr}})
+    .then(() => { getMoods(); })
+    .catch((err) => console.error('Could not post moods: ', err))
+    // const newDataArr = dataArr.slice();
+    // newDataArr[moodsArr.indexOf(e.target.innerText.slice(2))]++
+    // setDataArr(newDataArr);
+    // console.log('e.target.innerText', e.target.innerText.slice(2));
+    // console.log('DataArr', dataArr);
+  };
+
+
   return (
     <div>
       <Box

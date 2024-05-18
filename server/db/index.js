@@ -43,11 +43,11 @@ const Moods = db.define('Moods', {
     autoIncrement: true,
     primaryKey: true,
   },
-  rank: {
-    type: DataTypes.INTEGER,
+  mood: {
+    type: DataTypes.STRING,
   },
-  data: {
-    type: DataTypes.DATE,
+  count: {
+    type: DataTypes.INTEGER,
   },
 });
 
