@@ -7,13 +7,14 @@ import { red } from '@mui/material/colors';
 
 
 const Moods = () => {
-  const moodsArr = ["HAPPY", "HOPEFUL", "CONTENT", "WORRIED", "SAD"];
+  const moodsArr = ['HAPPY', 'HOPEFUL', 'CONTENT', 'WORRIED', 'SAD'];
+  const emojiArr = ['😁', '🙂', '🤨', '😟', '😞'];
   
   const [dataArr, setDataArr] = useState([12, 19, 3, 5, 2]);
   const updateMood = (e) => {
-    dataArr[moodsArr.indexOf(e.target.innerText)]++
+    dataArr[moodsArr.indexOf(e.target.innerText.slice(2))]++
     setDataArr(dataArr);
-    console.log('e.target.innerText', e.target.innerText);
+    console.log('e.target.innerText', e.target.innerText.slice(2));
     console.log('DataArr', dataArr);
   };
   return (
@@ -37,7 +38,7 @@ const Moods = () => {
       <ul>
         {moodsArr.map((mood, i) => (
           <li key={i}>
-            <Button sx={{color: red[300]}} onClick={updateMood}>{mood}</Button>
+            <Button sx={{color: red[300]}} onClick={updateMood}>{emojiArr[i]}{mood}</Button>
           </li>
         ))}
       </ul>
