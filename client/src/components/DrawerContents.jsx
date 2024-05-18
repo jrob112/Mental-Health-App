@@ -20,7 +20,7 @@ const DrawerContents = () => {
 
   return (
     <Box
-      sx={{ flexDirection: 'column', minWidth: 150 }}
+      sx={{ flexDirection: 'column', minWidth: 150, height: 400 }}
     >
       <List>
         <ListItem>
