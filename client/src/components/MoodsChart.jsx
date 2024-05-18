@@ -18,7 +18,8 @@ ChartJS.register(
   Legend
 );
 
-const MoodsChart = ({dataArr}) => {
+const MoodsChart = ({dataArr}, chart) => {
+  
   const ctx = document.getElementById('myChart');
   const options = {
     responsive: true,
@@ -46,7 +47,6 @@ const MoodsChart = ({dataArr}) => {
     }]
   };
 
-  
   return (
     <Bar options={options} data={data} />
    

@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import MoodsChart from "./MoodsChart.jsx";
 import { Button, Typography, Box } from '@mui/material';
 import backgroundImage from './floweraura.jpeg';
-import { styleOrangeBox, styleRedButton } from './styles.js';
+import { styleOrangeBox } from './styles.js';
 import { red } from '@mui/material/colors';
 
 
 const Moods = () => {
-  const moodsArr = ["Happy", "Hopeful", "Content", "Worried", "Sad"];
+  const moodsArr = ["HAPPY", "HOPEFUL", "CONTENT", "WORRIED", "SAD"];
   
   const [dataArr, setDataArr] = useState([12, 19, 3, 5, 2]);
   const updateMood = (e) => {
-    setDataArr(
-      (prevDataArr) => prevDataArr[moodsArr.indexOf(e.target.innerText)]++
-    );
+    dataArr[moodsArr.indexOf(e.target.innerText)]++
+    setDataArr(dataArr);
+    console.log('e.target.innerText', e.target.innerText);
+    console.log('DataArr', dataArr);
   };
   return (
     <div>
