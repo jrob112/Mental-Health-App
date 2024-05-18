@@ -1,19 +1,26 @@
 const { where } = require('sequelize');
 const { Habits } = require('../db');
+const sequelize = require('sequelize');
 
-const userId = 13;
 
 module.exports = {
   getHabits: (req, res) => {
-    Habits.findAll({})
-      .then((habits) => {
-        res.status(200).send(habits);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
+    const { id } = req.user[0];
+    Habits.findAll({
+      where: {
+        userId: id 
+      },
+      order: sequelize.literal('`timesCompleted` < `goal` DESC, `timesCompleted` >= `goal` ASC')
+    })
+    .then((habits) => {
+      res.status(200).send(habits);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
   },
+  
   /**
    *  This functions returns 201 or 500 wheter the habit was updated or not
    * this is the /:HabitId/habits
@@ -54,11 +61,9 @@ module.exports = {
    * @returns {status} 201 || err
    */
   postHabit: (req, res) => {
-    console.log(req.user[0], req.cookies);
-    // const { UserId } = req.params;
     const { goal, description } = req.body;
-
     const numGoal = Number(goal);
+    const { id } = req.user[0];
 
     Habits.create({
       description,
@@ -66,7 +71,7 @@ module.exports = {
       timesCompleted: 0,
       isComplete: false,
       streak: 0,
-      UserId: req.user[0].id,
+      UserId: id,
     })
       .then(() => {
         res.sendStatus(201);
