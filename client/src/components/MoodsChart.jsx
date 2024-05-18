@@ -18,7 +18,7 @@ ChartJS.register(
   Legend
 );
 
-const MoodsChart = () => {
+const MoodsChart = ({dataArr}) => {
   const ctx = document.getElementById('myChart');
   const options = {
     responsive: true,
@@ -39,35 +39,17 @@ const MoodsChart = () => {
     labels,
     datasets: [{
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2],
-      borderWidth: 1
+      data: dataArr,
+      borderWidth: 1,
+      borderColor: '#36A2EB',
+      backgroundColor: '#9BD0F5',
     }]
   };
 
   
   return (
     <Bar options={options} data={data} />
-    // <Chart  
-    //       type='bar'
-    //       data={
-    //         {
-    //           labels: ['Happy', 'Hopeful', 'Content', 'Worried', 'Sad'],
-    //           datasets: [{
-    //             label: '# of Votes',
-    //             data: [12, 19, 3, 5, 2],
-    //             borderWidth: 1
-    //           }]
-    //         }
-    //       }
-          // options={
-          //   {
-          //     scales: {
-          //     y: {
-          //       beginAtZero: true
-          //     }
-          //   }
-          // }}
-    // />
+   
   )
 }
 
