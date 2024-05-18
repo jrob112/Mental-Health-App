@@ -3,22 +3,18 @@ import React, { useState } from 'react';
 
 const userId = 5;
 
-export default function App() {
+export default function HabitForm({ getAllHabits }) {
   const [description, setDescription] = useState('');
   const [goal, setGoal] = useState(1);
 
-  const submitNewHabit = () => {
+  const submitNewHabit = (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
     return axios
       .post(`/api/${userId}/habits`, {
         goal,
-        description
+        description,
       })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      .then(getAllHabits);
   };
 
   return (
