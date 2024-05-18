@@ -110,6 +110,7 @@ async function updateStreaks() {
     console.error('Error updating streaks:', error);
   }
 }
+
 (async () => {
   try {
     await db.authenticate();
