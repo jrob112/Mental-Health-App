@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const { CronJob } = require('cron');
 
 const db = new Sequelize('healthier', 'root', '', {
   host: 'localhost',
@@ -83,6 +84,32 @@ Habits.User = Habits.belongsTo(User);
 Moods.User = Moods.belongsTo(User);
 Journals.User = Journals.belongsTo(User);
 
+async function updateStreaks() {
+  try {
+    console.log('Updating streaks...');
+    const habits = await Habits.findAll();
+    const today = new Date().setHours(0, 0, 0, 0);
+
+    for (const habit of habits) {
+      const lastReset = new Date(habit.lastReset).setHours(0, 0, 0, 0);
+      
+      // if (today > lastReset) {
+        if (habit.timesCompleted >= habit.goal) {
+          console.log(habit);
+          habit.streak++;
+        } else {
+          habit.streak = 0;
+        }
+        habit.timesCompleted = 0;
+        habit.lastReset = new Date();
+        await habit.save();
+      }
+    // }
+    console.log('Streaks updated successfully.');
+  } catch (error) {
+    console.error('Error updating streaks:', error);
+  }
+}
 (async () => {
   try {
     await db.authenticate();
@@ -92,11 +119,17 @@ Journals.User = Journals.belongsTo(User);
     Journals.sync();
     console.log('Connection has been established successfully.');
 
+    const streakJob = new CronJob(
+      '0 0 0 * * *',
+      updateStreaks,
+      null,
+      true,
+    );
+
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
 })();
-
 
 module.exports = {
   db,
@@ -104,4 +137,4 @@ module.exports = {
   Journals,
   Habits,
   Moods,
-}
+};
