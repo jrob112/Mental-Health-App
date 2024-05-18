@@ -75,26 +75,6 @@ const Habits = db.define('Habits', {
   },
 });
 
-/**
- * on every habit save checks to see if it is a new day
- * only way i could figure out to allow for a daily check
- */
-Habits.beforeSave(async (habit, options) => {
-  const today = new Date().setHours(0, 0, 0, 0);
-  //cant do habit.lastReset.setHours must create a new Date object
-  const lastReset = new Date(habit.lastReset).setHours(0, 0, 0, 0);
-
-  //if it is a new day
-  if (today > lastReset) {
-    if (habit.timesCompleted >= habit.goal) {
-      habit.streak++;
-    } else {
-      //if new day and is not completed
-      habit.timesCompleted = 0;
-      habit.lastReset = new Date();
-    }
-  }
-});
 User.Habits = User.hasMany(Habits);
 User.Moods = User.hasMany(Moods);
 User.Journals = User.hasMany(Journals);
