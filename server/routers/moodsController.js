@@ -2,11 +2,13 @@ const { Moods, User } = require('../db');
 
 module.exports = {
   getMoods: (req, res) => {
-    const { id } = req.user[0];
+    console.log('user', req.user)
+    const { id } = req.user;
     User.findByPk(id, {include: ['Moods']})
     .then((user) => {
-      // console.log('User.Moods', user.Moods)
-      if (user) { res.send(user.Moods); }
+      // console.log('User.Moods', user)
+      if (user) { 
+        res.send(user.Moods.sort((a, b) =>(+a.mood) - (+b.mood)).map(mood => mood.count)); }
       else { res.sendStatus(404) }
     })
     .catch((err) => {
@@ -15,12 +17,12 @@ module.exports = {
     });
   },
   postMoods: (req, res) => {
-    const { id } = req.user[0];
-    const { dataArr } = req.body;
-    console.log('postMoods', dataArr);
+    const { id } = req.user;
+    const { mood } = req.body;
+    // console.log('postMoods', dataArr);
     User.findByPk(id)
     .then((user) => {
-      if (user) { return Moods.create({...dataArr, UserId: user.id}); }
+      if (user) { return Moods.increment('count', {where: { mood, UserId: user.id}}); }
       else { throw 'No User' }
     })
     .then(() => {

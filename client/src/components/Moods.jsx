@@ -13,7 +13,10 @@ const Moods = () => {
   
   const getMoods = () => {
     axios.get(`/api/moods`)
-    .then(({ data }) => { setDataArr(data);})
+    .then(({ data }) => { 
+      setDataArr(data) 
+      console.log(data)
+    })
     .catch((err) => console.error('Could not get moods: ', err));
   };
 
@@ -24,16 +27,20 @@ const Moods = () => {
   useEffect(getMoods, [moodsRef])
 
   const updateMood = (e) => {
-    axios.post(`/api/moods`, {dataArr: {dataArr}})
-    .then(() => { getMoods(); })
-    .catch((err) => console.error('Could not post moods: ', err))
     // const newDataArr = dataArr.slice();
     // newDataArr[moodsArr.indexOf(e.target.innerText.slice(2))]++
     // setDataArr(newDataArr);
-    // console.log('e.target.innerText', e.target.innerText.slice(2));
     // console.log('DataArr', dataArr);
   };
 
+  const postMood = (e) => {
+    Promise.resolve(updateMood(e))
+      .then(() => {
+        axios.post(`/api/moods`, {mood: moodsArr.indexOf(e.target.innerText.slice(2))})
+        .then(() => { getMoods(); })
+        .catch((err) => console.error('Could not post moods: ', err))
+      })
+  }
 
   return (
     <div>
@@ -56,7 +63,7 @@ const Moods = () => {
       <ul>
         {moodsArr.map((mood, i) => (
           <li key={i}>
-            <Button sx={{color: red[300]}} onClick={updateMood}>{emojiArr[i]}{mood}</Button>
+            <Button sx={{color: red[300]}} onClick={postMood}>{emojiArr[i]}{mood}</Button>
           </li>
         ))}
       </ul>
