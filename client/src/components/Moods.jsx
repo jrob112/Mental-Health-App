@@ -12,8 +12,9 @@ const Moods = () => {
   
   const [dataArr, setDataArr] = useState([12, 19, 3, 5, 2]);
   const updateMood = (e) => {
-    dataArr[moodsArr.indexOf(e.target.innerText.slice(2))]++
-    setDataArr(dataArr);
+    const newDataArr = dataArr.slice();
+    newDataArr[moodsArr.indexOf(e.target.innerText.slice(2))]++
+    setDataArr(newDataArr);
     console.log('e.target.innerText', e.target.innerText.slice(2));
     console.log('DataArr', dataArr);
   };
