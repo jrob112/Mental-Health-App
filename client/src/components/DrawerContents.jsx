@@ -6,6 +6,7 @@ import ChecklistIcon from '@mui/icons-material/Checklist';
 import HomeIcon from '@mui/icons-material/Home';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import { styleRedButton } from "./styles";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const DrawerContents = () => {
   return (
@@ -27,6 +28,9 @@ const DrawerContents = () => {
           <NavLink to='/moods'><Button sx={{ ...styleRedButton, color: 'white', width: 125 }} variant="contained"><EmojiEmotionsIcon sx={{marginRight: 1, color: 'white'}}/>Moods</Button></NavLink>
         </ListItem>
       </List>
+      <Box sx={{marginTop: 1/1}}>
+        <Button><LogoutIcon sx={{marginRight: 1}}/> Logout</Button>
+      </Box>
     </Box>
   )
 }
