@@ -76,6 +76,12 @@ app.get(
   }),
 );
 
+app.post("/auth/logout", (req,res, next) => {
+  req.logOut((err) => {
+    console.error(err)
+  })
+})
+
 app.get('*', isAuthenticated, (req, res) => {
   res.sendFile(path.join(DIST_PATH, 'index.html'));
 });
