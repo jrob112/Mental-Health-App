@@ -29,7 +29,7 @@ const MoodsChart = ({dataArr}, chart) => {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Healthier Moods Chart',
       },
     },
   };
@@ -39,7 +39,7 @@ const MoodsChart = ({dataArr}, chart) => {
   const data = {
     labels,
     datasets: [{
-      label: '# of Votes',
+      label: '# of Moods',
       data: dataArr,
       borderWidth: 1,
       borderColor: '#36A2EB',
