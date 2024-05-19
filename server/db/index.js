@@ -115,7 +115,7 @@ Journals.User = Journals.belongsTo(User);
     Habits.sync();
     Moods.sync();
     Journals.sync();
-    console.log('Connection has been established successfully.');
+    console.info('Connection has been established successfully.');
 
   } catch (error) {
     console.error('Unable to connect to the database:', error);

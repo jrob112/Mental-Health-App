@@ -26,7 +26,7 @@ const lorem = new loremIpsum();
     )
     .then((user) => {
       user1 = user;
-      console.log(user1);
+      console.info(user1);
     })
     .then(() =>
       Journals.create({
@@ -51,7 +51,6 @@ const lorem = new loremIpsum();
     )
     .then((user) => {
       user2 = user;
-      console.log(user2);
     })
     .then(() =>
       Journals.create({

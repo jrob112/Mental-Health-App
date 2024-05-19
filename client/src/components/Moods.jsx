@@ -15,7 +15,6 @@ const Moods = () => {
     axios.get(`/api/moods`)
     .then(({ data }) => { 
       setDataArr(data) 
-      console.log(data)
     })
     .catch((err) => console.error('Could not get moods: ', err));
   };
@@ -24,22 +23,12 @@ const Moods = () => {
   const [dataArr, setDataArr] = useState([0, 0, 0, 0, 0]);
   const moodsRef = useRef(dataArr);
 
-  useEffect(getMoods, [moodsRef])
-
-  const updateMood = (e) => {
-    // const newDataArr = dataArr.slice();
-    // newDataArr[moodsArr.indexOf(e.target.innerText.slice(2))]++
-    // setDataArr(newDataArr);
-    // console.log('DataArr', dataArr);
-  };
+  useEffect(getMoods, [moodsRef]);
 
   const postMood = (e) => {
-    Promise.resolve(updateMood(e))
-      .then(() => {
         axios.post(`/api/moods`, {mood: moodsArr.indexOf(e.target.innerText.slice(2))})
         .then(() => { getMoods(); })
         .catch((err) => console.error('Could not post moods: ', err))
-      })
   }
 
   return (

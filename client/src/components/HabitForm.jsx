@@ -13,9 +13,6 @@ export default function App() {
         goal,
         description
       })
-      .then((res) => {
-        console.log(res);
-      })
       .catch((err) => {
         console.error(err);
       });

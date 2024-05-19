@@ -54,8 +54,6 @@ module.exports = {
    * @returns {status} 201 || err
    */
   postHabit: (req, res) => {
-    console.log(req.user[0], req.cookies);
-    // const { UserId } = req.params;
     const { goal, description } = req.body;
 
     const numGoal = Number(goal);

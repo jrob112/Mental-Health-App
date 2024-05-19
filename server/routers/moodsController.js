@@ -2,11 +2,9 @@ const { Moods, User } = require('../db');
 
 module.exports = {
   getMoods: (req, res) => {
-    console.log('user', req.user)
     const { id } = req.user;
     User.findByPk(id, {include: ['Moods']})
     .then((user) => {
-      // console.log('User.Moods', user)
       if (user) { 
         res.send(user.Moods.sort((a, b) =>(+a.mood) - (+b.mood)).map(mood => mood.count)); }
       else { res.sendStatus(404) }
@@ -19,7 +17,6 @@ module.exports = {
   postMoods: (req, res) => {
     const { id } = req.user;
     const { mood } = req.body;
-    // console.log('postMoods', dataArr);
     User.findByPk(id)
     .then((user) => {
       if (user) { return Moods.increment('count', {where: { mood, UserId: user.id}}); }
