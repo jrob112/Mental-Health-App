@@ -3,6 +3,7 @@ const weatherController = require('./weatherController');
 const journalController = require('./journalController');
 const userController = require('./userController');
 const habitsController = require('./habitsController');
+const moodsController = require('./moodsController');
 const router = express.Router();
 
 // Weather Routers
@@ -24,5 +25,9 @@ router.route('/:UserId/habits').get(habitsController.getHabits);
 router.route('/:UserId/habits').post(habitsController.postHabit);
 router.route('/:HabitId/habits').patch(habitsController.updateHabit);
 router.route('/:HabitId/habits').delete(habitsController.deleteHabit);
+
+// Moods Routers
+router.route('/moods').get(moodsController.getMoods);
+router.route('/moods').post(moodsController.postMoods);
 
 module.exports = router;

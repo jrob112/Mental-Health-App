@@ -2,7 +2,7 @@ const { User } = require('../db');
 
 module.exports = {
   getUser: (req, res) => {
-    const { id } = req.user[0];
+    const { id } = req.user;
     const userId = id;
     User.findByPk(userId, {include: ['Journals', 'Habits', 'Moods']})
       .then((user) => {

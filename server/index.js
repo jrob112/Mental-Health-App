@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const requestIp = require('request-ip');
 const isAuthenticated = require('./middleware/auth.js');
 
-const { User } = require('./db');
+const { User, Moods } = require('./db');
 const routes = require('./routers');
 
 require('dotenv').config();
@@ -18,10 +18,27 @@ const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
 const authUser = (request, accessToken, refreshToken, profile, done) => {
-  User.findOrCreate({where: {googleId: profile.id}, defaults:{googleId: profile.id, username: profile.given_name, location: 'test'}})
-    .then((user) => {done(null, user)})
+  User.findOne({where: {googleId: profile.id}})
+    .then((user) => {
+      if(user){done(null, user)}
+      else {
+        User.create({googleId: profile.id, username: profile.given_name, location: 'test'})
+        .then((newUser) => {
+          return Moods.bulkCreate([
+            {mood: 1, count: 0, UserId: newUser.id},
+            {mood: 2, count: 0, UserId: newUser.id},
+            {mood: 0, count: 0, UserId: newUser.id}, 
+            {mood: 3, count: 0, UserId: newUser.id},
+            {mood: 4, count: 0, UserId: newUser.id},
+          ])
+          .then(() => done(null, newUser))
+        })
+        
+      }
+      })
+    
 }
-
+// , defaults:{googleId: profile.id, username: profile.given_name, location: 'test'
 const app = express();
 
 app.use(session({

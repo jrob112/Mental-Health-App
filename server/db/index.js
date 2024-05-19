@@ -44,11 +44,11 @@ const Moods = db.define('Moods', {
     autoIncrement: true,
     primaryKey: true,
   },
-  rank: {
-    type: DataTypes.INTEGER,
+  mood: {
+    type: DataTypes.STRING,
   },
-  data: {
-    type: DataTypes.DATE,
+  count: {
+    type: DataTypes.INTEGER,
   },
 });
 
@@ -118,7 +118,7 @@ async function updateStreaks() {
     Habits.sync();
     Moods.sync();
     Journals.sync();
-    console.log('Connection has been established successfully.');
+    console.info('Connection has been established successfully.');
 
     const streakJob = new CronJob(
       '0 0 0 * * *',
