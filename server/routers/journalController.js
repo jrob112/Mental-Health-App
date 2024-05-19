@@ -2,7 +2,7 @@ const { Journals, User } = require('../db');
 
 module.exports = {
   getJournals: (req, res) => {
-    const { id } = req.user[0];
+    const { id } = req.user;
     User.findByPk(id, {include: ['Journals']})
     .then((user) => {
       if (user) { res.send(user.Journals.toReversed()); }
@@ -14,7 +14,7 @@ module.exports = {
     });
   },
   addJournal: (req, res) => {
-    const { id } = req.user[0];
+    const { id } = req.user;
     const { journal } = req.body;
     User.findByPk(id)
       .then((user) => {
@@ -35,7 +35,7 @@ module.exports = {
       });
   },
   getJournalEntry: (req, res) => {
-    const UserId = req.user[0].id;
+    const UserId = req.user.id;
     const { id } = req.params;
     Journals.findByPk(id)
       .then((journalEntry) => {
@@ -57,7 +57,7 @@ module.exports = {
       });
   },
   updateJournalEntry: (req, res) => {
-    const UserId = req.user[0].id;
+    const UserId = req.user.id;
     const { id } = req.params;
     const { updatedJournal } = req.body;
     Journals.update(updatedJournal, {where: {id: +id, UserId: +UserId}})
@@ -80,7 +80,7 @@ module.exports = {
       });
   },
   deleteJournalEntry: (req, res) => {
-    const UserId = req.user[0].id;
+    const UserId = req.user.id;
     const { id } = req.params;
     Journals.destroy({where: {id: +id, UserId: +UserId}})
       .then((data) => {

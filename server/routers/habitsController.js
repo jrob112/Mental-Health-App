@@ -5,10 +5,10 @@ const sequelize = require('sequelize');
 
 module.exports = {
   getHabits: (req, res) => {
-    const { id } = req.user[0];
+    const { id } = req.user;
     Habits.findAll({
       where: {
-        userId: id 
+        userId: id
       },
       order: sequelize.literal('`timesCompleted` < `goal` DESC, `timesCompleted` >= `goal` ASC')
     })
@@ -63,7 +63,7 @@ module.exports = {
   postHabit: (req, res) => {
     const { goal, description } = req.body;
     const numGoal = Number(goal);
-    const { id } = req.user[0];
+    const { id } = req.user;
 
     Habits.create({
       description,
