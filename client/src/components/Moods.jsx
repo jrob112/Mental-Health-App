@@ -49,7 +49,7 @@ const Moods = () => {
               fontFamily: 'Voguella, sans-serif',
             }}
           ></Typography>
-      <ul>
+      <ul>Click your mood!
         {moodsArr.map((mood, i) => (
           <li key={i}>
             <Button sx={{color: red[300]}} onClick={postMood}>{emojiArr[i]}{mood}</Button>
