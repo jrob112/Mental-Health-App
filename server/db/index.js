@@ -1,12 +1,14 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const { CronJob } = require('cron');
 
+// connect to mysql database
 const db = new Sequelize('healthier', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
   logging: false,
 });
 
+// User: {id, googleId, username, location}
 const User = db.define('User', {
   id: {
     type: DataTypes.INTEGER,
@@ -24,6 +26,7 @@ const User = db.define('User', {
   }
 });
 
+// Journals: {id, title, body}
 const Journals = db.define('Journal', {
   id: {
     type: DataTypes.INTEGER,
@@ -38,6 +41,7 @@ const Journals = db.define('Journal', {
   },
 });
 
+// Moods: {id, mood, }
 const Moods = db.define('Moods', {
   id: {
     type: DataTypes.INTEGER,
