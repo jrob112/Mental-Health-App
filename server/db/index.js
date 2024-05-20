@@ -86,7 +86,7 @@ Journals.User = Journals.belongsTo(User);
 
 async function updateStreaks() {
   try {
-    console.log('Updating streaks...');
+    console.info('Updating streaks...');
     const habits = await Habits.findAll();
     const today = new Date().setHours(0, 0, 0, 0);
 
@@ -95,7 +95,6 @@ async function updateStreaks() {
       
       // if (today > lastReset) {
         if (habit.timesCompleted >= habit.goal) {
-          console.log(habit);
           habit.streak++;
         } else {
           habit.streak = 0;
@@ -105,7 +104,7 @@ async function updateStreaks() {
         await habit.save();
       }
     // }
-    console.log('Streaks updated successfully.');
+    console.info('Streaks updated successfully.');
   } catch (error) {
     console.error('Error updating streaks:', error);
   }
