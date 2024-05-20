@@ -8,12 +8,15 @@ import { red } from '@mui/material/colors';
 
 
 const Moods = () => {
+  // moodsArr and emojiArr contains the button values
   const moodsArr = ['HAPPY', 'HOPEFUL', 'CONTENT', 'WORRIED', 'SAD'];
   const emojiArr = ['😁', '🙂', '🤨', '😟', '😞'];
   
+   // GET /api/moods
   const getMoods = () => {
     axios.get(`/api/moods`)
     .then(({ data }) => { 
+      // sets the state with the data
       setDataArr(data) 
     })
     .catch((err) => console.error('Could not get moods: ', err));
@@ -23,11 +26,13 @@ const Moods = () => {
   const [dataArr, setDataArr] = useState([0, 0, 0, 0, 0]);
   const moodsRef = useRef(dataArr);
 
+  // on load get the moods
   useEffect(getMoods, [moodsRef]);
 
+  // POST /api/moods
   const postMood = (e) => {
-        axios.post(`/api/moods`, {mood: moodsArr.indexOf(e.target.innerText.slice(2))})
-        .then(() => { getMoods(); })
+        axios.post(`/api/moods`, {mood: moodsArr.indexOf(e.target.innerText.slice(2))})//references the moods array by the index corresponding from the chart
+        .then(() => { getMoods(); })// returns the moods 
         .catch((err) => console.error('Could not post moods: ', err))
   }
 
