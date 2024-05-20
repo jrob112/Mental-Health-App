@@ -6,12 +6,15 @@ const habitsController = require('./habitsController');
 const moodsController = require('./moodsController');
 const router = express.Router();
 
+// all routers for endpoints starting at /api
+
 // Weather Routers
 router.route('/weather').get(weatherController.getWeather);
 
 // User Routers
 router.route('/user').get(userController.getUser);
-router.route('/user').post(userController.addUser);
+//NOT IN USE
+//router.route('/user').post(userController.addUser);
 
 // Journal Routers
 router.route('/journal').get(journalController.getJournals);

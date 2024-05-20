@@ -7,28 +7,44 @@ import { typographyFontVougella, pageBackground, styleRedButton, styleOrangeBox 
 
 const Journal = () => {
 
+  // fetch all user journals from server
   const getJournals = () => {
+    // GET /api/journals
     axios.get(`/api/journal`)
-    .then(({ data }) => { setJournals(data);})
-    .catch((err) => console.error('Could not get journal entries: ', err));
+      // save data in journals state
+      .then(({ data }) => { setJournals(data);})
+      // notify if error occurs
+      .catch((err) => console.error('Could not get journal entries: ', err));
   }
 
+  // request delete given journal from database
   const deleteJournal = (id) => {
+    // DELETE /api/journal:id
     axios.delete(`/api/journal/${id}`)
+      // fetch updated journal array
       .then(() => { getJournals(); })
+      // notify if error occurs
+      .catch((err) => console.error('Could not delete journal entry: ', err));
+
   }
 
+  // request post of new journal entry when submit button is pressed
   const onSubmit = () => {
+    // POST /api/journal
     axios.post(`/api/journal`, {journal: {title, body}})
+      // fetch updated journal array
       .then(() => { getJournals(); })
+      // notify if error occurs
       .catch((err) => console.error('Could not post journal: ', err))
   };
 
+  // STATE
   const [journals, setJournals] = useState([]);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const journalsRef = useRef(journals)
 
+  // On load, fetch all journals
   useEffect(getJournals, [journalsRef])
 
   return (
