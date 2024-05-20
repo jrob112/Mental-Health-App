@@ -22,7 +22,7 @@ const Moods = () => {
     .catch((err) => console.error('Could not get moods: ', err));
   };
 
-  // const [moods, setMoods] = useState([]);
+  // sets the initial values to zero 
   const [dataArr, setDataArr] = useState([0, 0, 0, 0, 0]);
   const moodsRef = useRef(dataArr);
 
