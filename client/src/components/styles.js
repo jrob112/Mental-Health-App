@@ -1,3 +1,5 @@
+// style sheet created so that it can be imported anywhere in the project
+// using material ui specifically
 import { orange, red } from '@mui/material/colors';
 import backgroundImage from './floweraura.jpeg';
 

@@ -1,18 +1,20 @@
 const { User } = require('../db');
 
 module.exports = {
-
   // GET /api/user
   getUser: (req, res) => {
     // destucture logged in user id
     const { id } = req.user;
+    // making userId be equal to destructured id
     const userId = id;
     // find user 
     User.findByPk(userId, {include: ['Journals', 'Habits', 'Moods']})
       .then((user) => {
         // send found user
+
         res.send(user);
       })
+      // catch block in case the user doesn't exist
       .catch((err) => {
         // send 500
         res.sendStatus(500);

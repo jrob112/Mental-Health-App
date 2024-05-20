@@ -1,3 +1,8 @@
+/* i downloaded the front from dafont.com and added it to this folder to be used in this folder
+@font-face to load the font in the project from my computer
+body to use it on the body sections of the project
+*/
+
 @font-face {
   font-family: 'Voguella';
   src: url('./Voguella.ttf') format('truetype');
