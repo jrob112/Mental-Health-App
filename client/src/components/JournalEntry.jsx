@@ -5,47 +5,68 @@ import { typographyFontVougella, pageBackground, styleRedButton, styleOrangeBox 
 import axios from "axios";
 import dayjs from "dayjs";
 
-
 const JournalEntry = () => {
+
+  // STATE
+  // journal entry object
   const [journal, setJournal] = useState({})
+  // editable body text
   const [body, setBody] = useState(journal.body);
+  // editable title text
   const [title, setTitle] = useState(journal.title)
+  // flag to denote edit mode
   const [editMode, toggleEditMode] = useState(false)
   const journalRef = useRef(journal);
+
+  // journal id from react router endpoint
   const { id } = useParams();
 
+  // On load, fetch journal entry
   useEffect(() => {
+    // GET /api/journal/:id
     axios.get(`/api/journal/${id}`)
       .then(({data}) => {
+        // save data to journal state
         setJournal(data);
       })
+      //notify if error occurs
       .catch((err) => {
         console.error('Could not get journal entry: ', err)
       })
   }, [journalRef])
 
+  // if cancel is pressed reset state
   const cancelEdit = () => {
-    setBody(journal.body)
-    setTitle(journal.title)
+    // set body and title to original value
+    setBody(journal.body);
+    setTitle(journal.title);
+
+    // change edit mode to false
     toggleEditMode(!editMode);
   }
 
+  // submit changes when submit is pressed
   const submitEdit = () => {
+    // PUT /api/journal/id
     axios.put(`/api/journal/${journal.id}`, {updatedJournal: {title, body}})
+      // if successfuly posted, save edited version to journal state
       .then(({data}) => {
         if (data === 'OK') {
           setJournal({...journal, title, body})
         }
+        // otherwise notify and cancel edit
         else {
           console.error('Could not update journal')
           cancelEdit()
         }
       })
+      // notify if error occurs
       .catch((err) => {
         console.error('Could not update journal: ', err);
       })
   }
 
+  
   return (
     <Box sx={pageBackground}>
       {

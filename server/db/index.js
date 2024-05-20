@@ -1,12 +1,14 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const { CronJob } = require('cron');
 
+// connect to mysql database
 const db = new Sequelize('healthier', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
   logging: false,
 });
 
+// User: {id, googleId, username, location}
 const User = db.define('User', {
   id: {
     type: DataTypes.INTEGER,
@@ -24,6 +26,7 @@ const User = db.define('User', {
   }
 });
 
+// Journals: {id, title, body}
 const Journals = db.define('Journal', {
   id: {
     type: DataTypes.INTEGER,
@@ -38,6 +41,8 @@ const Journals = db.define('Journal', {
   },
 });
 
+// Moods: {id, mood, count}
+// mood is the index of the dataArr/moodArr in Moods.jsx
 const Moods = db.define('Moods', {
   id: {
     type: DataTypes.INTEGER,
@@ -52,6 +57,7 @@ const Moods = db.define('Moods', {
   },
 });
 
+//Habits: {id, description, goal, timesCompleted, lastReset, streak}
 const Habits = db.define('Habits', {
   id: {
     type: DataTypes.INTEGER,
@@ -76,6 +82,8 @@ const Habits = db.define('Habits', {
   },
 });
 
+// Set up one to many reationship with User => Habits, Journal, Moods
+// foregin key = UserId
 User.Habits = User.hasMany(Habits);
 User.Moods = User.hasMany(Moods);
 User.Journals = User.hasMany(Journals);
@@ -86,7 +94,7 @@ Journals.User = Journals.belongsTo(User);
 
 async function updateStreaks() {
   try {
-    console.log('Updating streaks...');
+    console.info('Updating streaks...');
     const habits = await Habits.findAll();
     const today = new Date().setHours(0, 0, 0, 0);
 
@@ -95,7 +103,6 @@ async function updateStreaks() {
       
       // if (today > lastReset) {
         if (habit.timesCompleted >= habit.goal) {
-          console.log(habit);
           habit.streak++;
         } else {
           habit.streak = 0;
@@ -105,19 +112,23 @@ async function updateStreaks() {
         await habit.save();
       }
     // }
-    console.log('Streaks updated successfully.');
+    console.info('Streaks updated successfully.');
   } catch (error) {
     console.error('Error updating streaks:', error);
   }
 }
 
+// Verify and sync connection
 (async () => {
   try {
+    // verify connection
     await db.authenticate();
+    // sync schemas
     User.sync();
     Habits.sync();
     Moods.sync();
     Journals.sync();
+    // notify connection established
     console.info('Connection has been established successfully.');
 
     const streakJob = new CronJob(
@@ -127,6 +138,7 @@ async function updateStreaks() {
       true,
     );
 
+    // notify if error occurs
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }

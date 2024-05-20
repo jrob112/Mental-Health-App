@@ -1,47 +1,54 @@
 const { User } = require('../db');
 
 module.exports = {
-  // getting user info to access their name from google auth to show Welcome (user's name)! on home page
+  // GET /api/user
   getUser: (req, res) => {
-    // destructure id from req.user
+    // destucture logged in user id
     const { id } = req.user;
     // making userId be equal to destructured id
     const userId = id;
-    // findByPk = sequelize method
+    // find user 
     User.findByPk(userId, {include: ['Journals', 'Habits', 'Moods']})
       .then((user) => {
-        // if you find the user, send the user
+        // send found user
+
         res.send(user);
       })
       // catch block in case the user doesn't exist
       .catch((err) => {
+        // send 500
         res.sendStatus(500);
-        console.error('Error: User does not exist ', err);
+        // notify server of error
+        console.error('Error: GET /api/:userId : ', err);
       });
   },
 
+  // POST /api/user
+  //NOT IN USE
+  /*
   addUser: (req, res) => {
     const { newUser } = req.body;
     User.findOne({username: newUser.username})
-      .then((user) => {
-        if (user) {
-          throw 'user exists';
-        }
-        else {
-          return User.create(newUser);
-        }
-      })
-      .then(() => {
-        res.sendStatus(201);
-      })
-      .catch((err) => {
-        if (err === 'user exists') {
-          res.sendStatus(400, 'User already exists');
-        }
-        else {
-          res.sendStatus(500);
-          console.error(err)
-        }
-      })
+    .then((user) => {
+      if (user) {
+        throw 'user exists';
+      }
+      else {
+        return User.create(newUser);
+      }
+    })
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      if (err === 'user exists') {
+        res.sendStatus(400, 'User already exists');
+      }
+      else {
+        res.sendStatus(500);
+        console.error(err)
+      }
+    })
   }
+  */
 }

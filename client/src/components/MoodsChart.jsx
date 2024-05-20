@@ -19,7 +19,7 @@ ChartJS.register(
 );
 
 const MoodsChart = ({dataArr}, chart) => {
-  
+  // references the chart 
   const ctx = document.getElementById('myChart');
   const options = {
     responsive: true,
@@ -33,7 +33,7 @@ const MoodsChart = ({dataArr}, chart) => {
       },
     },
   };
-  
+  // chart labels
   const labels = ['Happy', 'Hopeful', 'Content', 'Worried', 'Sad'];
   
   const data = {

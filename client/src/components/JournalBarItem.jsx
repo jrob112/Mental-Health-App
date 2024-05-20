@@ -8,6 +8,7 @@ import { typographyFontVougella, pageBackground, styleRedButton, styleOrangeBox 
 
 const JournalBarItem = ({ journal, deleteJournal }) => {
 
+  // when delete is pressed call parent deletJournal function
   const handleDelete = () => {
     deleteJournal(journal.id);
   }
