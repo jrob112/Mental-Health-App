@@ -1,16 +1,22 @@
 const { User } = require('../db');
 
 module.exports = {
+  // getting user info to access their name from google auth to show Welcome (user's name)! on home page
   getUser: (req, res) => {
+    // destructure id from req.user
     const { id } = req.user;
+    // making userId be equal to destructured id
     const userId = id;
+    // findByPk = sequelize method
     User.findByPk(userId, {include: ['Journals', 'Habits', 'Moods']})
       .then((user) => {
+        // if you find the user, send the user
         res.send(user);
       })
+      // catch block in case the user doesn't exist
       .catch((err) => {
         res.sendStatus(500);
-        console.error('Error: GET /api/:userId : ', err);
+        console.error('Error: User does not exist ', err);
       });
   },
 
