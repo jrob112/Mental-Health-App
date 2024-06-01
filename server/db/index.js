@@ -1,11 +1,14 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const { CronJob } = require('cron');
 
+// connect to mysql database
 const db = new Sequelize('healthier', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
   logging: false,
 });
 
+// User: {id, googleId, username, location}
 const User = db.define('User', {
   id: {
     type: DataTypes.INTEGER,
@@ -23,6 +26,7 @@ const User = db.define('User', {
   }
 });
 
+// Journals: {id, title, body}
 const Journals = db.define('Journal', {
   id: {
     type: DataTypes.INTEGER,
@@ -37,20 +41,23 @@ const Journals = db.define('Journal', {
   },
 });
 
+// Moods: {id, mood, count}
+// mood is the index of the dataArr/moodArr in Moods.jsx
 const Moods = db.define('Moods', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  rank: {
-    type: DataTypes.INTEGER,
+  mood: {
+    type: DataTypes.STRING,
   },
-  data: {
-    type: DataTypes.DATE,
+  count: {
+    type: DataTypes.INTEGER,
   },
 });
 
+//Habits: {id, description, goal, timesCompleted, lastReset, streak}
 const Habits = db.define('Habits', {
   id: {
     type: DataTypes.INTEGER,
@@ -66,40 +73,17 @@ const Habits = db.define('Habits', {
   timesCompleted: {
     type: DataTypes.INTEGER,
   },
-  isComplete: {
-    type: DataTypes.BOOLEAN,
-    //replaced isComplete with the last reset
-    //don't need anymore with Habits.beforeSave below
-    lastReset: {
-      type: DataTypes.DATE,
-      defaultValue: Sequelize.NOW,
-    },
-    streak: {
-      type: DataTypes.INTEGER,
-    },
+  lastReset: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.NOW,
+  },
+  streak: {
+    type: DataTypes.INTEGER,
   },
 });
 
-/**
- * on every habit save checks to see if it is a new day
- * only way i could figure out to allow for a daily check
- */
-Habits.beforeSave(async (habit, options) => {
-  const today = new Date().setHours(0, 0, 0, 0);
-  //cant do habit.lastReset.setHours must create a new Date object
-  const lastReset = new Date(habit.lastReset).setHours(0, 0, 0, 0);
-
-  //if it is a new day
-  if (today > lastReset) {
-    if (habit.timesCompleted >= habit.goal) {
-      habit.streak++;
-    } else {
-      //if new day and is not completed
-      habit.timesCompleted = 0;
-      habit.lastReset = new Date();
-    }
-  }
-});
+// Set up one to many reationship with User => Habits, Journal, Moods
+// foregin key = UserId
 User.Habits = User.hasMany(Habits);
 User.Moods = User.hasMany(Moods);
 User.Journals = User.hasMany(Journals);
@@ -108,20 +92,57 @@ Habits.User = Habits.belongsTo(User);
 Moods.User = Moods.belongsTo(User);
 Journals.User = Journals.belongsTo(User);
 
+async function updateStreaks() {
+  try {
+    console.info('Updating streaks...');
+    const habits = await Habits.findAll();
+    const today = new Date().setHours(0, 0, 0, 0);
+
+    for (const habit of habits) {
+      const lastReset = new Date(habit.lastReset).setHours(0, 0, 0, 0);
+      
+      // if (today > lastReset) {
+        if (habit.timesCompleted >= habit.goal) {
+          habit.streak++;
+        } else {
+          habit.streak = 0;
+        }
+        habit.timesCompleted = 0;
+        habit.lastReset = new Date();
+        await habit.save();
+      }
+    // }
+    console.info('Streaks updated successfully.');
+  } catch (error) {
+    console.error('Error updating streaks:', error);
+  }
+}
+
+// Verify and sync connection
 (async () => {
   try {
+    // verify connection
     await db.authenticate();
+    // sync schemas
     User.sync();
     Habits.sync();
     Moods.sync();
     Journals.sync();
-    console.log('Connection has been established successfully.');
+    // notify connection established
+    console.info('Connection has been established successfully.');
 
+    const streakJob = new CronJob(
+      '0 0 0 * * *',
+      updateStreaks,
+      null,
+      true,
+    );
+
+    // notify if error occurs
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
 })();
-
 
 module.exports = {
   db,
@@ -129,4 +150,4 @@ module.exports = {
   Journals,
   Habits,
   Moods,
-}
+};

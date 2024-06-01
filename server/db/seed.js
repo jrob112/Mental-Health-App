@@ -1,3 +1,4 @@
+// run with npm run seed
 const { User, Journals, Moods, Habits } = require('.');
 const loremIpsum = require('lorem-ipsum').LoremIpsum;
 
@@ -17,6 +18,7 @@ const lorem = new loremIpsum();
     .then(() => {
       console.info('Cleared tables');
     })
+    // create user
     .then(() =>
       User.create({
           username: lorem.generateWords(1),
@@ -26,8 +28,9 @@ const lorem = new loremIpsum();
     )
     .then((user) => {
       user1 = user;
-      console.log(user1);
+      console.info(user1);
     })
+    // add journal to user 1
     .then(() =>
       Journals.create({
         title: lorem.generateWords(5),
@@ -35,6 +38,7 @@ const lorem = new loremIpsum();
         UserId: user1.id,
       }),
     )
+    // add another journal to user 1
     .then(() =>
       Journals.create({
         title: lorem.generateWords(5),
@@ -42,6 +46,7 @@ const lorem = new loremIpsum();
         UserId: user1.id,
       }),
     )
+    // create new user
     .then(() =>
       User.create({
           username: lorem.generateWords(1),
@@ -51,8 +56,8 @@ const lorem = new loremIpsum();
     )
     .then((user) => {
       user2 = user;
-      console.log(user2);
     })
+    // add journal to user 2
     .then(() =>
       Journals.create({
         title: lorem.generateWords(5),
@@ -60,6 +65,7 @@ const lorem = new loremIpsum();
         UserId: user2.id,
       }),
     )
+    // add another journal to user 2
     .then(() =>
       Journals.create({
         title: lorem.generateWords(5),
@@ -67,6 +73,7 @@ const lorem = new loremIpsum();
         UserId: user2.id,
       }),
     )
+    // add habit to user 2
     .then(() => {
       Habits.create({
         description: lorem.generateWords(5),
@@ -77,9 +84,11 @@ const lorem = new loremIpsum();
         UserId: user2.id
       })
     })
+    // notify that database is seeded
     .then(() => {
       console.info('Seeded database');
     })
+    //notify if error occurs
     .catch((err) => {
       console.error('Could not seed database: ', err);
     });

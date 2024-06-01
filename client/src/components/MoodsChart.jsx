@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -18,7 +18,8 @@ ChartJS.register(
   Legend
 );
 
-const MoodsChart = () => {
+const MoodsChart = ({dataArr}, chart) => {
+  // references the chart 
   const ctx = document.getElementById('myChart');
   const options = {
     responsive: true,
@@ -28,46 +29,27 @@ const MoodsChart = () => {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Healthier Moods Chart',
       },
     },
   };
-  
+  // chart labels
   const labels = ['Happy', 'Hopeful', 'Content', 'Worried', 'Sad'];
   
   const data = {
     labels,
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2],
-      borderWidth: 1
+      label: '# of Moods',
+      data: dataArr,
+      borderWidth: 1,
+      borderColor: '#36A2EB',
+      backgroundColor: '#9BD0F5',
     }]
   };
 
-  
   return (
     <Bar options={options} data={data} />
-    // <Chart  
-    //       type='bar'
-    //       data={
-    //         {
-    //           labels: ['Happy', 'Hopeful', 'Content', 'Worried', 'Sad'],
-    //           datasets: [{
-    //             label: '# of Votes',
-    //             data: [12, 19, 3, 5, 2],
-    //             borderWidth: 1
-    //           }]
-    //         }
-    //       }
-          // options={
-          //   {
-          //     scales: {
-          //     y: {
-          //       beginAtZero: true
-          //     }
-          //   }
-          // }}
-    // />
+   
   )
 }
 

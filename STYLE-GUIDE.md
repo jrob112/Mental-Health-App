@@ -1,0 +1,1 @@
+This project uses the Airbnb eslint styling guide.

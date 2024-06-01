@@ -1,3 +1,6 @@
+// import react and the specific hooks i wanna use
+// import axios
+// import material ui components and specific component i wanna use from our styles sheet
 // useState = hooks to manage state
 // useEffect = perform side effects in component
   // kinda like componentDidMount
@@ -6,6 +9,7 @@ import axios from 'axios';
 import { Typography, Box } from '@mui/material';
 import { styleOrangeBox } from './styles.js';
 
+// weather component to see the user's weather on the home page
 const Weather = () => {
   // first value holds the current state, second value is the function that allows you to update the state
   // weatherData = state variable that holds the weather data from my API
@@ -13,6 +17,7 @@ const Weather = () => {
   // setWeatherData = use to update weatherData
     // when it is called, it will trigger a re-render of the component with the updated state
   const [weatherData, setWeatherData] = useState(null);
+  // useRef necessary so it doesn't cause in infinite call
   const weatherRef = useRef(weatherData);
 
   // get weather data from the API using axios get req
@@ -29,7 +34,7 @@ const Weather = () => {
 
   // whatever i pass in is executed after every render
   // getWeatherData is called when the component mounts and ONLY when it mounts
-  // [] = dependency array
+  // [weatherRef] = dependency array
     // will only run once after the initial render
   // initial render = when react starts rendering the component/children to the DOM for the first time
     // react creates the necessary DOM elements based on the comp's jsx
@@ -43,14 +48,14 @@ const Weather = () => {
 
   // my api gives temp in celsius so i need to change it to fahrenheit
   const toFahrenheit = (celsius) => {
-    return (celsius * 9/5) + 32;
+    return Math.floor(((celsius * 9/5) + 32) * 100) / 100;
   };
 
+  // using material ui to customize the react component
   return (
     <Box sx={styleOrangeBox}>
       {weatherData ? (
         <div>
-          {/* <Typography variant="body1">Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F</Typography> */}
           <Typography
             variant="body1"
             sx={{
@@ -59,7 +64,6 @@ const Weather = () => {
           >
             Current Temperature: {toFahrenheit(weatherData.days[0].temp)}°F
           </Typography>
-          {/* <Typography variant="body1">Weather Conditions: {weatherData.days[0].description}</Typography> */}
           <Typography
             variant="body1"
             sx={{
@@ -70,7 +74,6 @@ const Weather = () => {
           </Typography>
         </div>
       ) : (
-        // <Typography variant="body1">Loading...</Typography>
         <Typography
         variant="body1"
         sx={{

@@ -1,18 +1,32 @@
+// importing react and specific react hooks
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// import axios
 import axios from 'axios';
+// import weather component since it will be shown on this page
 import Weather from './Weather.jsx';
+// import specific material ui components and background image that i chose and components from styles sheet
 import { Button, Typography, Box } from '@mui/material';
 import backgroundImage from './floweraura.jpeg';
 import { styleOrangeBox, styleRedButton } from './styles.js';
 
+// first value holds the current state, second value is the function that allows you to update the state
+// userName = state variable that holds the user's name
+  // it is set to an empty string until setUserName is called with a new value
+// setUserName = use to update username
+  // when it is called, it will trigger a re-render of the component with the updated state
 const HomePage = () => {
   const [userName, setUserName] = useState('');
 
+  // whatever i pass in is executed after every render
+  // get request is done when the component mounts and ONLY when it mounts
+  // [] = dependency array
   useEffect(() => {
     axios.get(`/api/user`)
       .then((response) => {
+        // grabbing user from response.data
         const user = response.data;
+        // setting the username as user.username because that is where the user's username is
         setUserName(user.username);
       })
       .catch((error) => {
@@ -20,6 +34,7 @@ const HomePage = () => {
       });
   }, []);
 
+  // using material ui to customize the react component
   return (
     <div className='homePage'>
       <Box
