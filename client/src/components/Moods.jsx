@@ -14,7 +14,7 @@ const Moods = () => {
   return (
     <div>
       <ul>
-        { moodsArr.map((mood, i) => <li key={i}>{mood}</li>)}
+        { moodsArr.map((mood, i) => <button key={i}>{mood}</button>)}
       </ul>
       <MoodsChart />
     </div>

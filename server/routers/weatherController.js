@@ -4,7 +4,6 @@ require('dotenv').config();
 module.exports = {
   getWeather: (req, res) => {
     const userIpAddress = req.clientIp;
-    console.log('user ip addy', userIpAddress);
 
     axios.get(`http://ip-api.com/json/${userIpAddress}?fields=city,region,countryCode`)
       .then((ipResponse) => {
